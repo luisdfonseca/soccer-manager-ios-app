@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */; };
-		1E4CE7E21DEA1373009BBAA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E11DEA1373009BBAA2 /* ViewController.swift */; };
+		1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */; };
 		1E4CE7E51DEA1373009BBAA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E31DEA1373009BBAA2 /* Main.storyboard */; };
 		1E4CE7E81DEA1373009BBAA2 /* Soccer_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E61DEA1373009BBAA2 /* Soccer_App.xcdatamodeld */; };
 		1E4CE7EA1DEA1373009BBAA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E91DEA1373009BBAA2 /* Assets.xcassets */; };
 		1E4CE7ED1DEA1373009BBAA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CE7EB1DEA1373009BBAA2 /* LaunchScreen.storyboard */; };
+		1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E4CE7DC1DEA1373009BBAA2 /* Soccer-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Soccer-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1E4CE7E11DEA1373009BBAA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		1E4CE7E41DEA1373009BBAA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E4CE7E71DEA1373009BBAA2 /* Soccer_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Soccer_App.xcdatamodel; sourceTree = "<group>"; };
 		1E4CE7E91DEA1373009BBAA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E4CE7EC1DEA1373009BBAA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E4CE7EE1DEA1373009BBAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */,
-				1E4CE7E11DEA1373009BBAA2 /* ViewController.swift */,
+				1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */,
+				1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */,
 				1E4CE7E31DEA1373009BBAA2 /* Main.storyboard */,
 				1E4CE7E91DEA1373009BBAA2 /* Assets.xcassets */,
 				1E4CE7EB1DEA1373009BBAA2 /* LaunchScreen.storyboard */,
@@ -138,7 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4CE7E21DEA1373009BBAA2 /* ViewController.swift in Sources */,
+				1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */,
+				1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */,
 				1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */,
 				1E4CE7E81DEA1373009BBAA2 /* Soccer_App.xcdatamodeld in Sources */,
 			);
