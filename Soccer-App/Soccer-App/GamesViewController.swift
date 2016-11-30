@@ -8,7 +8,9 @@
 
 import UIKit
 
-class GamesViewController: UIViewController {
+class GamesViewController: UITableViewController {
+    
+    let games = GamesDatabase.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,20 @@ class GamesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return games.allGames.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
+        
+        let item = games.allGames[indexPath.row]
+        cell.textLabel?.text = item.opponentName
+        return cell
+    }
+
     
 }
 

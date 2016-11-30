@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r7W-wL-JSc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r7W-wL-JSc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -25,25 +25,35 @@
             </objects>
             <point key="canvasLocation" x="545.5" y="1303.5"/>
         </scene>
-        <!--Games-->
-        <scene sceneID="jXe-ce-O9t">
+        <!--Games View Controller-->
+        <scene sceneID="cce-aw-eHm">
             <objects>
-                <viewController title="Games" id="hOg-zg-koc" userLabel="Games" customClass="GamesViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pmc-B5-4cW"/>
-                        <viewControllerLayoutGuide type="bottom" id="N97-hn-cMt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WTC-bF-voQ">
+                <tableViewController id="Bu3-Vb-6RX" customClass="GamesViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9fh-2z-4Md">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Games" id="BoD-7F-xLz"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="m58-Si-HwB">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m58-Si-HwB" id="h2j-Bw-uKz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bu3-Vb-6RX" id="0b5-3l-F6f"/>
+                            <outlet property="delegate" destination="Bu3-Vb-6RX" id="2YE-Ax-DoP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KHy-8G-Ivn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s3V-yL-BwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBc-Le-Jdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066.5" y="1303.5"/>
+            <point key="canvasLocation" x="1569.5" y="1290.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YI3-6c-Gmv">
@@ -57,12 +67,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="5ZO-9a-XC6"/>
-                        <segue destination="hOg-zg-koc" kind="relationship" relationship="viewControllers" id="ZU0-9z-BLQ"/>
+                        <segue destination="9tw-tE-Hbz" kind="relationship" relationship="viewControllers" id="vvx-Qm-NYO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KjE-5k-THJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835.5" y="460.5"/>
+        </scene>
+        <!--Games-->
+        <scene sceneID="sEv-nS-rTk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9tw-tE-Hbz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Games" id="zFr-SE-O7y"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3dh-RB-KRj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bu3-Vb-6RX" kind="relationship" relationship="rootViewController" id="deh-e4-neu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7z-bw-fM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982.5" y="1290.5"/>
         </scene>
     </scenes>
 </document>

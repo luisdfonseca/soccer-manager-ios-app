@@ -14,6 +14,8 @@
 		1E4CE7EA1DEA1373009BBAA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E91DEA1373009BBAA2 /* Assets.xcassets */; };
 		1E4CE7ED1DEA1373009BBAA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CE7EB1DEA1373009BBAA2 /* LaunchScreen.storyboard */; };
 		1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */; };
+		7B07856B1DEE8EF900E413F2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856A1DEE8EF900E413F2 /* Game.swift */; };
+		7B07856D1DEE97D300E413F2 /* GamesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1E4CE7EC1DEA1373009BBAA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E4CE7EE1DEA1373009BBAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		7B07856A1DEE8EF900E413F2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +62,9 @@
 		1E4CE7DE1DEA1373009BBAA2 /* Soccer-App */ = {
 			isa = PBXGroup;
 			children = (
+				7B0785691DEE8EAD00E413F2 /* Model */,
+				7B0785681DEE8E7200E413F2 /* Controllers */,
 				1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */,
-				1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */,
-				1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */,
 				1E4CE7E31DEA1373009BBAA2 /* Main.storyboard */,
 				1E4CE7E91DEA1373009BBAA2 /* Assets.xcassets */,
 				1E4CE7EB1DEA1373009BBAA2 /* LaunchScreen.storyboard */,
@@ -68,6 +72,24 @@
 				1E4CE7E61DEA1373009BBAA2 /* Soccer_App.xcdatamodeld */,
 			);
 			path = "Soccer-App";
+			sourceTree = "<group>";
+		};
+		7B0785681DEE8E7200E413F2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */,
+				1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7B0785691DEE8EAD00E413F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B07856A1DEE8EF900E413F2 /* Game.swift */,
+				7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */,
+				7B07856B1DEE8EF900E413F2 /* Game.swift in Sources */,
 				1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */,
 				1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */,
+				7B07856D1DEE97D300E413F2 /* GamesDatabase.swift in Sources */,
 				1E4CE7E81DEA1373009BBAA2 /* Soccer_App.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +318,7 @@
 				1E4CE7F31DEA1373009BBAA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
