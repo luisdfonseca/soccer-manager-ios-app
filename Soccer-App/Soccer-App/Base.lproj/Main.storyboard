@@ -29,7 +29,6 @@
         <!--Players-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="Players" id="BYZ-38-t0r" userLabel="Players" customClass="UserViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -108,6 +107,7 @@
                         <outlet property="tableview" destination="mdk-tq-ebP" id="6Pp-f6-SVH"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="634.5" y="1303.5"/>
         </scene>
