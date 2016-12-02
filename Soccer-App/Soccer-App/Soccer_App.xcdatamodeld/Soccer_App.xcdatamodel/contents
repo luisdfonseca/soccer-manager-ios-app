@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1108" minimumToolsVersion="Automatic">
-    <entity name="Players" syncable="YES">
+    <entity name="Player" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="birthdate" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,8 +11,11 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="playerNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
+        <fetchedProperty name="fetchedProperty" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Player"/>
+        </fetchedProperty>
     </entity>
     <elements>
-        <element name="Players" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Player" positionX="-63" positionY="-18" width="128" height="224"/>
     </elements>
 </model>
