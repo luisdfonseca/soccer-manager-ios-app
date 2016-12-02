@@ -8,21 +8,45 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class UserViewController: UIViewController, UITableViewDataSource, UITabBarDelegate {
 
+    @IBOutlet weak var tableview: UITableView!
+    
+    var movies = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        movies.append("Test")
+        movies.append("Test2")
+        print(movies[1])
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // this is an example
-    // this is the second change
-    // this is the third change
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableview.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
+        
+        let movie = movies[indexPath.row]
+        print(movie)
+        cell.textLabel?.text = movie
+        
+        return cell
+    }
+
+   
 }
 
