@@ -6,9 +6,30 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Player Details-->
+        <scene sceneID="rB1-eX-0bH">
+            <objects>
+                <viewController title="Player Details" id="X87-sg-huU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g3W-xl-Gah"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Mu-hD-sAJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tBx-bv-4oK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.98485845327377319" green="0.96096521615982056" blue="0.9481310248374939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2q-LY-Qug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="522" y="2152"/>
+        </scene>
         <!--Players-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="Players" id="BYZ-38-t0r" userLabel="Players" customClass="UserViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -18,7 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0g-2b-eyt">
+                            <navigationBar tag="-1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0g-2b-eyt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Players" id="jc5-dO-snG">
@@ -27,7 +48,11 @@
                                                 <action selector="addPlayer:" destination="BYZ-38-t0r" id="PUp-3R-Xwo"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="zXE-Hk-b3f"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="E9Z-p5-W1l">
+                                            <connections>
+                                                <action selector="editButton:" destination="BYZ-38-t0r" id="Anh-ii-Qdp"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -44,17 +69,18 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blankPlayer.png" translatesAutoresizingMaskIntoConstraints="NO" id="FEX-a8-fKd">
                                                     <rect key="frame" x="284" y="0.0" width="43" height="43"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="43" id="izR-E3-B2H"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="FEX-a8-fKd" secondAttribute="bottom" id="9ad-J2-lfc"/>
-                                                <constraint firstItem="FEX-a8-fKd" firstAttribute="trailing" secondItem="q6p-8s-WGD" secondAttribute="trailingMargin" id="BRM-3h-dxF"/>
-                                                <constraint firstItem="FEX-a8-fKd" firstAttribute="top" secondItem="q6p-8s-WGD" secondAttribute="top" id="ZaP-Ui-IAk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FEX-a8-fKd" secondAttribute="bottom" constant="-8" id="0yw-8Z-WZ2"/>
+                                                <constraint firstItem="FEX-a8-fKd" firstAttribute="leading" secondItem="q6p-8s-WGD" secondAttribute="leadingMargin" constant="276" id="2xJ-9h-cmX"/>
+                                                <constraint firstItem="FEX-a8-fKd" firstAttribute="top" secondItem="q6p-8s-WGD" secondAttribute="topMargin" constant="-8" id="GPz-Pa-Bvl"/>
+                                                <constraint firstItem="FEX-a8-fKd" firstAttribute="trailing" secondItem="q6p-8s-WGD" secondAttribute="trailingMargin" id="xUh-J0-Biw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="X87-sg-huU" kind="show" identifier="playerDetailViewControllerSegue" id="3QO-8R-QlJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -65,24 +91,25 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="M0g-2b-eyt" secondAttribute="trailing" id="OgE-7z-uE8"/>
+                            <constraint firstItem="mdk-tq-ebP" firstAttribute="top" secondItem="M0g-2b-eyt" secondAttribute="bottom" constant="21" id="BQk-AO-jb6"/>
+                            <constraint firstItem="M0g-2b-eyt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MTM-Wu-x9L"/>
                             <constraint firstAttribute="trailing" secondItem="mdk-tq-ebP" secondAttribute="trailing" constant="20" id="UEM-nF-yTl"/>
-                            <constraint firstItem="M0g-2b-eyt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dht-OX-gLi"/>
+                            <constraint firstAttribute="trailing" secondItem="M0g-2b-eyt" secondAttribute="trailing" id="a9N-ZC-H8L"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mdk-tq-ebP" secondAttribute="bottom" constant="16" id="j1q-ZI-Lge"/>
-                            <constraint firstItem="M0g-2b-eyt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="k9Y-Wg-IzK"/>
+                            <constraint firstItem="M0g-2b-eyt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qLg-fl-xbb"/>
                             <constraint firstItem="mdk-tq-ebP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ssv-KF-Sln"/>
-                            <constraint firstItem="mdk-tq-ebP" firstAttribute="top" secondItem="M0g-2b-eyt" secondAttribute="bottom" constant="21" id="wn2-wh-eVQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Players" id="qlI-AK-KmS"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="editButton" destination="E9Z-p5-W1l" id="oSI-Pa-xKH"/>
+                        <outlet property="navigationBar" destination="M0g-2b-eyt" id="8wv-qr-jEg"/>
                         <outlet property="tableview" destination="mdk-tq-ebP" id="6Pp-f6-SVH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543.5" y="1328.5"/>
+            <point key="canvasLocation" x="634.5" y="1303.5"/>
         </scene>
         <!--Games-->
         <scene sceneID="jXe-ce-O9t">

@@ -12,10 +12,13 @@ import CoreData
 class UserViewController: UIViewController, UITableViewDataSource, UITabBarDelegate {
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     var players = [NSManagedObject]()
     var playerPhotos = [[UIImage]]()
    
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -42,10 +45,6 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
@@ -63,12 +62,51 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
        
         let fName = player.valueForKey("firstName") as? String
         //let lName = player.valueForKey("lastName") as? String
+        
         let displayText = fName! //+ " " + lName!
 
         cell.textLabel!.text = displayText
         
         return cell
     }
+    
+    @IBAction func editButton(sender: UIBarButtonItem) {
+
+            if(self.tableview.editing == true)
+            {
+                self.tableview.editing = false
+                editButton.title = "Edit"
+            }
+            else
+            {
+                self.tableview.editing = true
+                editButton.title = "Done"
+            }
+    }
+
+    func tableView(tableView: UITableView,commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let managedContext = appDelegate.managedObjectContext
+            managedContext.deleteObject(players[indexPath.row] as NSManagedObject)
+            players.removeAtIndex(indexPath.row)
+            do {
+                try managedContext.save()
+            } catch _ {
+            }
+
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+        }
+    }
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+
+    
     
     @IBAction func addPlayer(sender: AnyObject) {
         
@@ -128,7 +166,8 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
             print("Could not save \(error), \(error.userInfo)")
         }
     }
-
+    
+    
    
 }
 
