@@ -4,7 +4,7 @@ class Game: NSObject{
     
     var opponentName:String
     var address: String
-    let gameDate: NSDate
+    var gameDate: NSDate
     
     init(opponentName: String, address: String) {
         self.opponentName = opponentName

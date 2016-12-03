@@ -16,8 +16,10 @@ final class GamesDatabase {
     
     init() {
         let gOne = Game(opponentName: "Doral United", address: "Doral, FL")
+        let gTwo = Game(opponentName: "Doral United2", address: "Doral, FL")
         
         self.addGame(gOne)
+        self.addGame(gTwo)
     }
     
     func addGame(newGame: Game){
