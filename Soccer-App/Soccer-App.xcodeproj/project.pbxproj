@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1BDC851DF21EC900B6349E /* playerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1BDC841DF21EC900B6349E /* playerStore.swift */; };
 		0E9F767E1DF1D54C00B61F59 /* SoccerBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F767D1DF1D54C00B61F59 /* SoccerBackground.jpg */; };
 		0E9F76801DF1DD7500B61F59 /* TabPlayersIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F767F1DF1DD7500B61F59 /* TabPlayersIcon.jpg */; };
 		0E9F76821DF1E89C00B61F59 /* blankPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F76811DF1E89C00B61F59 /* blankPlayer.png */; };
+		0EDA868B1DF21A1800E3CCD5 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA868A1DF21A1800E3CCD5 /* UserDetailViewController.swift */; };
 		1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */; };
 		1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */; };
 		1E4CE7E51DEA1373009BBAA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E31DEA1373009BBAA2 /* Main.storyboard */; };
@@ -20,9 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E1BDC841DF21EC900B6349E /* playerStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerStore.swift; sourceTree = "<group>"; };
 		0E9F767D1DF1D54C00B61F59 /* SoccerBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoccerBackground.jpg; sourceTree = "<group>"; };
 		0E9F767F1DF1DD7500B61F59 /* TabPlayersIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TabPlayersIcon.jpg; sourceTree = "<group>"; };
 		0E9F76811DF1E89C00B61F59 /* blankPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankPlayer.png; sourceTree = "<group>"; };
+		0EDA868A1DF21A1800E3CCD5 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		1E4CE7DC1DEA1373009BBAA2 /* Soccer-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Soccer-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -77,12 +81,14 @@
 				0E9F76831DF1E8A400B61F59 /* Images */,
 				1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */,
 				1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */,
+				0EDA868A1DF21A1800E3CCD5 /* UserDetailViewController.swift */,
 				1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */,
 				1E4CE7E31DEA1373009BBAA2 /* Main.storyboard */,
 				1E4CE7E91DEA1373009BBAA2 /* Assets.xcassets */,
 				1E4CE7EB1DEA1373009BBAA2 /* LaunchScreen.storyboard */,
 				1E4CE7EE1DEA1373009BBAA2 /* Info.plist */,
 				1E4CE7E61DEA1373009BBAA2 /* Soccer_App.xcdatamodeld */,
+				0E1BDC841DF21EC900B6349E /* playerStore.swift */,
 			);
 			path = "Soccer-App";
 			sourceTree = "<group>";
@@ -163,8 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */,
+				0EDA868B1DF21A1800E3CCD5 /* UserDetailViewController.swift in Sources */,
 				1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */,
 				1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */,
+				0E1BDC851DF21EC900B6349E /* playerStore.swift in Sources */,
 				1E4CE7E81DEA1373009BBAA2 /* Soccer_App.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

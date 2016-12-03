@@ -15,7 +15,7 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     var players = [NSManagedObject]()
-    var playerPhotos = [[UIImage]]()
+    var playerPhotos = [UIImage]()
    
     @IBOutlet weak var navigationBar: UINavigationBar!
     
@@ -60,7 +60,7 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
         
         let player = players[indexPath.row]
        
-        let fName = player.valueForKey("firstName") as? String
+        let fName = player.valueForKey("playerNumber") as? String
         //let lName = player.valueForKey("lastName") as? String
         
         let displayText = fName! //+ " " + lName!
@@ -111,7 +111,7 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     @IBAction func addPlayer(sender: AnyObject) {
         
         let alert = UIAlertController(title: "New Player",
-                                      message: "Add the new Player's First Name",
+                                      message: "Add the new player's Jersey Number",
                                       preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save",
@@ -155,7 +155,16 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
                                      insertIntoManagedObjectContext: managedContext)
         
         //3
-        person.setValue(name, forKey: "firstName")
+        person.setValue(name, forKey: "playerNumber")
+        person.setValue("", forKey: "firstName")
+        person.setValue("", forKey: "lastName")
+        person.setValue("", forKey: "phoneNumber")
+        person.setValue("", forKey: "age")
+        person.setValue("", forKey: "email")
+        person.setValue("", forKey: "address")
+        person.setValue("", forKey: "height")
+        person.setValue("", forKey: "weight")
+        person.setValue("", forKey: "birthdate")
         
         //4
         do {
@@ -167,6 +176,23 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //If the triggered segue is the "Showitem" segue
+        if segue.identifier == "playerDetailSegue" {
+            
+            //Figure out what row was just tapped.
+            if (tableview.indexPathForSelectedRow?.row) != nil {
+                
+                //Get the item associated with this row and pass it along
+                let item:[NSManagedObject] = players
+                
+                let detailViewController = segue.destinationViewController as! UserDetailViewController
+                
+                detailViewController.players = item
+              
+            }
+        }
+    }
     
    
 }
