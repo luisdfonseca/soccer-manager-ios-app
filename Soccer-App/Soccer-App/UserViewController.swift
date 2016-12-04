@@ -14,62 +14,65 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    var players = [NSManagedObject]()
+    let playerstore = PlayerStore.sharedInstance
     var playerPhotos = [UIImage]()
    
+    
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //1
-        let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let fetchRequest = NSFetchRequest(entityName: "Player")
-        
-        //3
-        do {
-            let results =
-                try managedContext.executeFetchRequest(fetchRequest)
-            players = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
+        tableview.reloadData()
+       
     }
-    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        return playerstore.getCount()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableview.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
         
-        let player = players[indexPath.row]
-       
-        let fName = player.valueForKey("playerNumber") as? String
-        //let lName = player.valueForKey("lastName") as? String
+        let player = playerstore.getPlayer(indexPath.row)
         
-        let displayText = fName! //+ " " + lName!
-
-        cell.textLabel!.text = displayText
+        let pNumber = player.playerNumber
+        let pFName = player.firstName
+        let pLName = player.lastName
+        
+        // Customize separator width
+        tableView.separatorInset = UIEdgeInsetsZero
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.preservesSuperviewLayoutMargins = false
+        
+        //Create Image
+        let imageView = UIImageView(frame: CGRectMake(10, 5, 50, 50))
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        imageView.layer.cornerRadius = 25
+        imageView.clipsToBounds = true
+        imageView.image = playerstore.getPlayerImage(indexPath.row)
+        cell.contentView.addSubview(imageView)
+ 
+        // Create textLabel
+        let textLabel = UILabel(frame: CGRectMake(70, 0, self.view.frame.width, 20))
+        textLabel.font = UIFont(name: "Arial", size: 15.0)
+        textLabel.textAlignment = .Left
+        textLabel.text = pNumber + " " + pFName + " " + pLName
+        cell.contentView.addSubview(textLabel)
         
         return cell
     }
-    
+ 
     @IBAction func editButton(sender: UIBarButtonItem) {
 
             if(self.tableview.editing == true)
@@ -87,15 +90,7 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     func tableView(tableView: UITableView,commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let managedContext = appDelegate.managedObjectContext
-            managedContext.deleteObject(players[indexPath.row] as NSManagedObject)
-            players.removeAtIndex(indexPath.row)
-            do {
-                try managedContext.save()
-            } catch _ {
-            }
-
+            playerstore.removePlayer(indexPath.row)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
@@ -119,8 +114,28 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
                                        handler: { (action:UIAlertAction) -> Void in
                                         
                                         let textField = alert.textFields!.first
-                                        self.saveName(textField!.text!)
+                                        
+                                        if !self.playerstore.checkPNumExists(textField!.text!) {
+                                            
+                                        
+                                        
+                                        let player:Player = Player(playerNumber: textField!.text!, firstName: "First Name", lastName: "Last Name", phoneNumber: "", age: "", email: "", address: "", height: "", weight: "", birthdate: "")
+                                        
+                                        //After getting player number, create alert that gives instructions
+                                        let instructionAlert: UIAlertController = UIAlertController(title: "Update New Player", message: "Tap on the players number you just added to finish updating information about the new player.", preferredStyle: .Alert)
+                                        instructionAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                                        self.presentViewController(instructionAlert, animated: true, completion: nil)
+                                        
+                                        
+                                        self.playerstore.addPlayer(player)
                                         self.tableview.reloadData()
+                                        }
+                                        else{
+                                            let instructionAlert: UIAlertController = UIAlertController(title: "Number Already Exists", message: "Sorry, this number is already assigned to another player.", preferredStyle: .Alert)
+                                            instructionAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                                            self.presentViewController(instructionAlert, animated: true, completion: nil)
+                                        }
+                                        
         
         })
         
@@ -138,62 +153,25 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
         presentViewController(alert,
                               animated: true,
                               completion: nil)
-    }
-    
-    func saveName(name: String) {
-        //1
-        let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
         
-        let managedContext = appDelegate.managedObjectContext
         
-        //2
-        let entity =  NSEntityDescription.entityForName("Player",
-                                                        inManagedObjectContext:managedContext)
-        
-        let person = NSManagedObject(entity: entity!,
-                                     insertIntoManagedObjectContext: managedContext)
-        
-        //3
-        person.setValue(name, forKey: "playerNumber")
-        person.setValue("", forKey: "firstName")
-        person.setValue("", forKey: "lastName")
-        person.setValue("", forKey: "phoneNumber")
-        person.setValue("", forKey: "age")
-        person.setValue("", forKey: "email")
-        person.setValue("", forKey: "address")
-        person.setValue("", forKey: "height")
-        person.setValue("", forKey: "weight")
-        person.setValue("", forKey: "birthdate")
-        
-        //4
-        do {
-            try managedContext.save()
-            //5
-            players.append(person)
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //If the triggered segue is the "Showitem" segue
+        
         if segue.identifier == "playerDetailSegue" {
             
             //Figure out what row was just tapped.
             if (tableview.indexPathForSelectedRow?.row) != nil {
                 
-                //Get the item associated with this row and pass it along
-                let item:[NSManagedObject] = players
-                
                 let detailViewController = segue.destinationViewController as! UserDetailViewController
                 
-                detailViewController.players = item
+                detailViewController.index = tableview.indexPathForSelectedRow!.row
               
             }
         }
     }
     
-   
+    
 }
 

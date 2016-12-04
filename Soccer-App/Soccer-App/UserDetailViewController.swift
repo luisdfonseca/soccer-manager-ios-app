@@ -9,9 +9,11 @@
 import CoreData
 import UIKit
 
-class UserDetailViewController: UIViewController {
-
-
+class UserDetailViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    enum error: ErrorType {
+        case bad
+    }
+    
     @IBOutlet weak var fName: UITextField!
     @IBOutlet weak var lName: UITextField!
     @IBOutlet weak var playerNumber: UITextField!
@@ -23,14 +25,30 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var birthdate: UITextField!
     
-    
     @IBOutlet weak var navBar: UINavigationBar!
-    var players = [NSManagedObject()]
-    //var thePlayerProperties = [String]()
+
+    @IBOutlet weak var playerImg: UIImageView!
+    
+    var image = UIImage()
+    var index : Int = 0
+    let playerstore = PlayerStore.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.fName.delegate = self;
+        self.lName.delegate = self;
+        self.playerNumber.delegate = self;
+        self.phoneNumber.delegate = self;
+        self.age.delegate = self;
+        self.email.delegate = self;
+        self.address.delegate = self;
+        self.height.delegate = self;
+        self.weight.delegate = self;
+        self.birthdate.delegate = self;
         // Do any additional setup after loading the view.
+        
+        playerImg.image = playerstore.getPlayerImage(index)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -39,76 +57,101 @@ class UserDetailViewController: UIViewController {
     }
 
     func loadPlayerProperties(){
-        let thePlayer = players[0]
         
-        let firstName = thePlayer.valueForKey("firstName") as? String
-        let lastName = thePlayer.valueForKey("lastName") as? String
-        let playerNumber = thePlayer.valueForKey("playerNumber") as? String
-        let phoneNumber = thePlayer.valueForKey("phoneNumber") as? String
-        let age = thePlayer.valueForKey("age") as? String
-        let email = thePlayer.valueForKey("email") as? String
-        let address = thePlayer.valueForKey("address") as? String
-        let height = thePlayer.valueForKey("height") as? String
-        let weight = thePlayer.valueForKey("weight") as? String
-        let birthdate = thePlayer.valueForKey("birthdate") as? String
+        let thePlayer : Player = playerstore.getPlayer(self.index)
         
+        self.fName.text = thePlayer.firstName
+        self.lName.text = thePlayer.lastName
+        self.playerNumber.text = thePlayer.playerNumber
+        self.phoneNumber.text = thePlayer.phoneNumber
+        self.age.text = thePlayer.age
+        self.email.text = thePlayer.email
+        self.address.text = thePlayer.address
+        self.height.text = thePlayer.height
+        self.weight.text = thePlayer.weight
+        self.birthdate.text = thePlayer.birthdate
         
-        self.fName.text = firstName
-        self.lName.text = lastName
-        self.playerNumber.text = playerNumber
-        self.phoneNumber.text = phoneNumber
-        self.age.text = age
-        self.email.text = email
-        self.address.text = address
-        self.height.text = height
-        self.weight.text = weight
-        self.birthdate.text = birthdate
-        
-        /*
-        thePlayerProperties.append(firstName!)
-        thePlayerProperties.append(lastName!)
-        thePlayerProperties.append(playerNumber!)
-        thePlayerProperties.append(phoneNumber!)
-        thePlayerProperties.append(age!)
-        thePlayerProperties.append(email!)
-        thePlayerProperties.append(address!)
-        thePlayerProperties.append(height!)
-        thePlayerProperties.append(weight!)
-        thePlayerProperties.append(birthdate!)
-        */
-        
-        self.title = firstName! + " " + lastName!
-        
+        self.title = thePlayer.firstName + " " + thePlayer.lastName        
     }
     
     
-    /*
-    func saveName(name: String) {
-        //1
-        let appDelegate =
-            UIApplication.sharedApplication().delegate as! AppDelegate
+    @IBAction func saveButton(sender: AnyObject) {
         
-        let managedContext = appDelegate.managedObjectContext
+        var thePlayer : Player = Player(playerNumber: "", firstName: "", lastName: "", phoneNumber: "", age: "", email: "", address: "", height: "", weight: "", birthdate: "")
         
-        //2
-        let entity =  NSEntityDescription.entityForName("Player",
-                                                        inManagedObjectContext:managedContext)
+        if !playerstore.checkPNumExists(self.playerNumber.text!) {
+       
+            thePlayer.firstName = self.fName.text!
+            thePlayer.lastName = self.lName.text!
+            thePlayer.playerNumber = self.playerNumber.text!
+            thePlayer.phoneNumber = self.phoneNumber.text!
+            thePlayer.age = self.age.text!
+            thePlayer.email = self.email.text!
+            thePlayer.address = self.address.text!
+            thePlayer.height = self.height.text!
+            thePlayer.weight = self.weight.text!
+            thePlayer.birthdate = self.birthdate.text!
         
-        let person = NSManagedObject(entity: entity!,
-                                     insertIntoManagedObjectContext: managedContext)
+            playerstore.updatePlayer(self.index, player: thePlayer)
         
-        //3
-        person.setValue(name, forKey: "playerNumber")
-        
-        
-        //4
-        do {
-            try managedContext.save()
-            //5
-            players.append(person)
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            performSegueWithIdentifier("back2PlayersSegue", sender: self)
         }
-    }*/
+        else{
+            let instructionAlert: UIAlertController = UIAlertController(title: "Number Already Exists", message: "Sorry, this number is already assigned to another player.", preferredStyle: .Alert)
+            instructionAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(instructionAlert, animated: true, completion: nil)
+        }
+    }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
+    @IBAction func pressedCamera(sender: AnyObject) {
+        
+        let imagePicker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            imagePicker.sourceType = .Camera
+            imagePicker.allowsEditing = true
+            imagePicker.cameraCaptureMode = .Photo  // or .Video
+            imagePicker.modalPresentationStyle = .FullScreen
+        }
+        else {
+            imagePicker.sourceType = .PhotoLibrary
+        }
+        
+        imagePicker.delegate = self
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    } // end pressedCamera
+    
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+
+        image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        playerstore.savePicture(image, index: index)
+        
+        playerImg.image = image
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    } // end imagePickerController (_:didFinish)
+    
+    
+
+        
 }
+
+
