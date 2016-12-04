@@ -32,7 +32,7 @@ final class PlayerStore: NSObject {
     private override init () {
         super.init()
         
-        self.fillPlayerStore()
+        //self.fillPlayerStore()
     }
     
     private func fillPlayerStore () {
