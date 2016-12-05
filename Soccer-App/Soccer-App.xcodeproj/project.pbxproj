@@ -21,6 +21,9 @@
 		7B07856D1DEE97D300E413F2 /* GamesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */; };
 		7B07856F1DF2223D00E413F2 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856E1DF2223D00E413F2 /* GameDetailViewController.swift */; };
 		7B0785711DF24C6D00E413F2 /* AddGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0785701DF24C6D00E413F2 /* AddGameViewController.swift */; };
+		7B2E62331DF3DA4000A80B1E /* CameraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2E62321DF3DA4000A80B1E /* CameraIcon.png */; };
+		7B2E62351DF3DAAB00A80B1E /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62341DF3DAAB00A80B1E /* UserDetailViewController.swift */; };
+		7B2E62371DF3DAD200A80B1E /* PlayerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62361DF3DAD200A80B1E /* PlayerStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesDatabase.swift; sourceTree = "<group>"; };
 		7B07856E1DF2223D00E413F2 /* GameDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		7B0785701DF24C6D00E413F2 /* AddGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGameViewController.swift; sourceTree = "<group>"; };
+		7B2E62321DF3DA4000A80B1E /* CameraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraIcon.png; sourceTree = "<group>"; };
+		7B2E62341DF3DAAB00A80B1E /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		7B2E62361DF3DAD200A80B1E /* PlayerStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		0E9F76831DF1E8A400B61F59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E62321DF3DA4000A80B1E /* CameraIcon.png */,
 				0E9F76811DF1E89C00B61F59 /* blankPlayer.png */,
 				0E9F767F1DF1DD7500B61F59 /* TabPlayersIcon.jpg */,
 				0E9F767D1DF1D54C00B61F59 /* SoccerBackground.jpg */,
@@ -82,7 +89,6 @@
 		1E4CE7DE1DEA1373009BBAA2 /* Soccer-App */ = {
 			isa = PBXGroup;
 			children = (
-
 				0E9F76831DF1E8A400B61F59 /* Images */,
 				7B0785691DEE8EAD00E413F2 /* Model */,
 				7B0785681DEE8E7200E413F2 /* Controllers */,
@@ -99,6 +105,7 @@
 		7B0785681DEE8E7200E413F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E62341DF3DAAB00A80B1E /* UserDetailViewController.swift */,
 				7B07856E1DF2223D00E413F2 /* GameDetailViewController.swift */,
 				1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */,
 				1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */,
@@ -110,6 +117,7 @@
 		7B0785691DEE8EAD00E413F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E62361DF3DAD200A80B1E /* PlayerStore.swift */,
 				7B07856A1DEE8EF900E413F2 /* Game.swift */,
 				7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */,
 			);
@@ -176,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E9F76801DF1DD7500B61F59 /* TabPlayersIcon.jpg in Resources */,
+				7B2E62331DF3DA4000A80B1E /* CameraIcon.png in Resources */,
 				0E9F76821DF1E89C00B61F59 /* blankPlayer.png in Resources */,
 				1E4CE7ED1DEA1373009BBAA2 /* LaunchScreen.storyboard in Resources */,
 				1E4CE7EA1DEA1373009BBAA2 /* Assets.xcassets in Resources */,
@@ -193,6 +202,8 @@
 			files = (
 				7B0785711DF24C6D00E413F2 /* AddGameViewController.swift in Sources */,
 				7B07856F1DF2223D00E413F2 /* GameDetailViewController.swift in Sources */,
+				7B2E62371DF3DAD200A80B1E /* PlayerStore.swift in Sources */,
+				7B2E62351DF3DAAB00A80B1E /* UserDetailViewController.swift in Sources */,
 				1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */,
 				7B07856B1DEE8EF900E413F2 /* Game.swift in Sources */,
 				1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */,
