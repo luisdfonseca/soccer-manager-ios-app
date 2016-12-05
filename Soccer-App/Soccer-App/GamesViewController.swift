@@ -28,11 +28,22 @@ class GamesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "GameTableViewCell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GameTableViewCell
         
-        let item = games.allGames[indexPath.row]
-        cell.textLabel?.text = item.opponentName
+        let game = games.allGames[indexPath.row]
+        
+        let gamedate = game.gameDate
+        
+        let formater = NSDateFormatter()
+        formater.dateFormat = "d"
+        let dayString = formater.stringFromDate(gamedate)
+        
+        cell.nameLabel.text = game.opponentName
+        cell.dateLabel.text = dayString
+        
+        
         return cell
     }
     

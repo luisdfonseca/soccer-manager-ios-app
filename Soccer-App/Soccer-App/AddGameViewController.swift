@@ -4,22 +4,25 @@ class AddGameViewController: UIViewController {
     
     @IBOutlet var addressField: UITextField!
     @IBOutlet var nameField: UITextField!
-    @IBOutlet var dateField: UITextField!
+    @IBOutlet var dateField: UIDatePicker!
+    
     
     let games = GamesDatabase.sharedInstance
-    var game = Game(opponentName: "", address: "")
+    var dateSelected = NSDate()
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
     }
     
+    @IBAction func datePickerAction(sender: AnyObject) {
+        dateSelected = dateField.date
+    }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        
-        game.address  = addressField.text!
-        game.opponentName = nameField.text!
+        var game = Game(opponentName: nameField.text!, address: addressField.text!, gameDate: dateSelected)
         
         games.addGame(game)
         
