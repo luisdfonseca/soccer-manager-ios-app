@@ -15,8 +15,8 @@ final class GamesDatabase {
     var allGames = [Game]()
     
     init() {
-        let gOne = Game(opponentName: "Doral United", address: "Doral, FL")
-        let gTwo = Game(opponentName: "Doral United2", address: "Doral, FL")
+        let gOne = Game(opponentName: "Doral United", address: "Doral, FL", gameDate: NSDate())
+        let gTwo = Game(opponentName: "Doral United2", address: "Doral, FL", gameDate: NSDate())
         
         self.addGame(gOne)
         self.addGame(gTwo)

@@ -6,10 +6,10 @@ class Game: NSObject{
     var address: String
     var gameDate: NSDate
     
-    init(opponentName: String, address: String) {
+    init(opponentName: String, address: String, gameDate: NSDate) {
         self.opponentName = opponentName
         self.address = address
-        self.gameDate = NSDate()
+        self.gameDate = gameDate
         
         super.init()
     }

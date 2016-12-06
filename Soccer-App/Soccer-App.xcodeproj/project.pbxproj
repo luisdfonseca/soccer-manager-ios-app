@@ -24,6 +24,7 @@
 		7B2E62331DF3DA4000A80B1E /* CameraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2E62321DF3DA4000A80B1E /* CameraIcon.png */; };
 		7B2E62351DF3DAAB00A80B1E /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62341DF3DAAB00A80B1E /* UserDetailViewController.swift */; };
 		7B2E62371DF3DAD200A80B1E /* PlayerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62361DF3DAD200A80B1E /* PlayerStore.swift */; };
+		7B2E623B1DF5E56200A80B1E /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E623A1DF5E56200A80B1E /* GameTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		7B2E62321DF3DA4000A80B1E /* CameraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraIcon.png; sourceTree = "<group>"; };
 		7B2E62341DF3DAAB00A80B1E /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		7B2E62361DF3DAD200A80B1E /* PlayerStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStore.swift; sourceTree = "<group>"; };
+		7B2E623A1DF5E56200A80B1E /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		1E4CE7DE1DEA1373009BBAA2 /* Soccer-App */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E623C1DF5ED9B00A80B1E /* Views */,
 				0E9F76831DF1E8A400B61F59 /* Images */,
 				7B0785691DEE8EAD00E413F2 /* Model */,
 				7B0785681DEE8E7200E413F2 /* Controllers */,
@@ -122,6 +125,14 @@
 				7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		7B2E623C1DF5ED9B00A80B1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B2E623A1DF5E56200A80B1E /* GameTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				7B2E62351DF3DAAB00A80B1E /* UserDetailViewController.swift in Sources */,
 				1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */,
 				7B07856B1DEE8EF900E413F2 /* Game.swift in Sources */,
+				7B2E623B1DF5E56200A80B1E /* GameTableViewCell.swift in Sources */,
 				1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */,
 				1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */,
 				7B07856D1DEE97D300E413F2 /* GamesDatabase.swift in Sources */,
