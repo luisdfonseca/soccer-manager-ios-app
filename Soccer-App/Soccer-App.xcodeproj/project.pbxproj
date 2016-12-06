@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0FF5D71DF64C9300BF2B84 /* playericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E0FF5D61DF64C9300BF2B84 /* playericon.png */; };
 		0E9F767E1DF1D54C00B61F59 /* SoccerBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F767D1DF1D54C00B61F59 /* SoccerBackground.jpg */; };
-		0E9F76801DF1DD7500B61F59 /* TabPlayersIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F767F1DF1DD7500B61F59 /* TabPlayersIcon.jpg */; };
 		0E9F76821DF1E89C00B61F59 /* blankPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F76811DF1E89C00B61F59 /* blankPlayer.png */; };
 		1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */; };
 		1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7E11DEA1373009BBAA2 /* UserViewController.swift */; };
@@ -27,8 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0FF5D61DF64C9300BF2B84 /* playericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playericon.png; sourceTree = "<group>"; };
 		0E9F767D1DF1D54C00B61F59 /* SoccerBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoccerBackground.jpg; sourceTree = "<group>"; };
-		0E9F767F1DF1DD7500B61F59 /* TabPlayersIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TabPlayersIcon.jpg; sourceTree = "<group>"; };
 		0E9F76811DF1E89C00B61F59 /* blankPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankPlayer.png; sourceTree = "<group>"; };
 		1E4CE7DC1DEA1373009BBAA2 /* Soccer-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Soccer-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4CE7DF1DEA1373009BBAA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,9 +62,9 @@
 		0E9F76831DF1E8A400B61F59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0E0FF5D61DF64C9300BF2B84 /* playericon.png */,
 				7B2E62321DF3DA4000A80B1E /* CameraIcon.png */,
 				0E9F76811DF1E89C00B61F59 /* blankPlayer.png */,
-				0E9F767F1DF1DD7500B61F59 /* TabPlayersIcon.jpg */,
 				0E9F767D1DF1D54C00B61F59 /* SoccerBackground.jpg */,
 			);
 			name = Images;
@@ -183,7 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E9F76801DF1DD7500B61F59 /* TabPlayersIcon.jpg in Resources */,
+				0E0FF5D71DF64C9300BF2B84 /* playericon.png in Resources */,
 				7B2E62331DF3DA4000A80B1E /* CameraIcon.png in Resources */,
 				0E9F76821DF1E89C00B61F59 /* blankPlayer.png in Resources */,
 				1E4CE7ED1DEA1373009BBAA2 /* LaunchScreen.storyboard in Resources */,

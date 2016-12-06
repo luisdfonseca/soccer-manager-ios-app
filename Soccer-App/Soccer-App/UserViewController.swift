@@ -1,9 +1,9 @@
-//
-//  ViewController.swift
-//  Soccer-App
-//
-//  Created by luis daniel fonseca on 11/26/16.
-//  Copyright © 2016 luis daniel fonseca. All rights reserved.
+//  PROGRAMMER:     Michael Juarez, Luis Daniel Fonseca
+//  PANTHERID:      1316430
+//  CLASS:          COP 465501 TR 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Final Project
+//  DUE:            Thursday 12/08/16
 //
 
 import UIKit
@@ -13,15 +13,15 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var PlayersTabBar: UITabBarItem!
     
     let playerstore = PlayerStore.sharedInstance
-    var playerPhotos = [UIImage]()
-    
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
     }
     
@@ -36,6 +36,7 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return playerstore.getCount()
     }
     
@@ -90,10 +91,9 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     func tableView(tableView: UITableView,commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
-            playerstore.removePlayer(indexPath.row)
+            playerstore.removePlayer(indexPath.row, savePicture: false)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
         }
     }
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -115,10 +115,10 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
                                         
                                         let textField = alert.textFields!.first
                                         
+                                        //If player number isn't already used, then add the player with following code
                                         if !self.playerstore.checkPNumExists(textField!.text!) {
                                             
-                                            
-                                            
+                                            //Setting up empty variable for player
                                             let player:Player = Player(playerNumber: textField!.text!, firstName: "First Name", lastName: "Last Name", phoneNumber: "", age: "", email: "", address: "", height: "", weight: "", birthdate: "")
                                             
                                             //After getting player number, create alert that gives instructions
@@ -126,10 +126,10 @@ class UserViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
                                             instructionAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                                             self.presentViewController(instructionAlert, animated: true, completion: nil)
                                             
-                                            
                                             self.playerstore.addPlayer(player)
                                             self.tableview.reloadData()
                                         }
+                                        //Player's number is already being used, blast user with message saying we can't add the player.
                                         else{
                                             let instructionAlert: UIAlertController = UIAlertController(title: "Number Already Exists", message: "Sorry, this number is already assigned to another player.", preferredStyle: .Alert)
                                             instructionAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

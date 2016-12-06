@@ -1,9 +1,9 @@
-//
-//  playerStore.swift
-//  Soccer-App
-//
-//  Created by michael jason juarez on 12/2/16.
-//  Copyright © 2016 luis daniel fonseca. All rights reserved.
+//  PROGRAMMER:     Michael Juarez, Luis Daniel Fonseca
+//  PANTHERID:      1316430
+//  CLASS:          COP 465501 TR 5:00
+//  INSTRUCTOR:     Steve Luis  ECS 282
+//  ASSIGNMENT:     Final Project
+//  DUE:            Thursday 12/08/16
 //
 
 import CoreData
@@ -26,13 +26,14 @@ final class PlayerStore: NSObject {
     
     static let sharedInstance = PlayerStore()
     
+    //These arrays run parrellel.  This approach can be improved, just didn't want to break code after fully understanding I didn't need parralel arrays.  It was easier to pass array data to other view controllers, versus passing NSManagedObjects
     private var playersCoreData = [NSManagedObject]()
     private var pStore = [Player]()
     
     private override init () {
         super.init()
         
-        //self.fillPlayerStore()
+        self.fillPlayerStore()
     }
     
     private func fillPlayerStore () {
@@ -55,8 +56,9 @@ final class PlayerStore: NSObject {
             print("Could not fetch \(error), \(error.userInfo)")
         }
         
+        //Fill the pStore[Player] array with data from the CoreData array
         for i in 0..<playersCoreData.count {
-            print(String(i) + " < " + String(playersCoreData.count) )
+
             let playerCoreData = playersCoreData[i]
             
             let playerNumber = playerCoreData.valueForKey("playerNumber") as? String
@@ -76,21 +78,44 @@ final class PlayerStore: NSObject {
         }
     }
     
-    
+    //Not sure if this is needed, kept it in case I break something
     func getpStore() -> [Player] {
         return pStore
     }
     
-    func removePlayer(index:Int) {
+    //Save Picture is only used if I'm updating the contact, should be false if I'm truly deleting a contact
+    func removePlayer(index:Int, savePicture: Bool?) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        managedContext.deleteObject(playersCoreData[index] as NSManagedObject)
-        pStore.removeAtIndex(index)
+        //Assign the player number to pNum
+        let pNum = pStore[index].playerNumber
+        
+        
+        let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Player")
+        fetchRequest.predicate = NSPredicate(format: "playerNumber == %@", pNum)
+        
         do {
-            try managedContext.save()
-        } catch _ {
+            
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            managedContext.deleteObject(results[0] as! NSManagedObject)
+            
+            //Save the picture if i'm only updating an existing contact
+            if savePicture != true {
+                deletePlayerPhoto(pStore[index].playerNumber)
+            }
+            
+            playersCoreData.removeAtIndex(index)
+            pStore.removeAtIndex(index)
+            
+            print(pStore.count)
+            print(playersCoreData.count)
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
         }
+    }
+    
+    func removePlayerWhenUpdating(index:Int) {
         
     }
     
@@ -103,7 +128,7 @@ final class PlayerStore: NSObject {
     }
     
     func addPlayer(aPlayer : Player) {
-        //1
+        //14
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
@@ -129,47 +154,55 @@ final class PlayerStore: NSObject {
         
         //4
         do {
-            try managedContext.save()
-            //5
             pStore.append(aPlayer)
             playersCoreData.append(player)
+            
+            try managedContext.save()
+            //5
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
     }
     
     
+    //Remove and add player from lists
     func updatePlayer (index : Int, player : Player) {
-        removePlayer(index)
+        let oldPlayer = pStore[index]
+        let oldPlayerNumber = oldPlayer.playerNumber
+        let newPlayerNumber = player.playerNumber
+        
+        if oldPlayerNumber != newPlayerNumber {
+            updatePicturePath(oldPlayerNumber, newPNum: newPlayerNumber)
+        }
+        
+        removePlayer(index, savePicture: true)
         addPlayer(player)
     }
     
-    func getPlayerImage(index : Int) -> UIImage {
-        
-        let pNum : String = getPlayer(index).playerNumber
-        let fileName : String = pNum + ".png"
-        
-        var pic : UIImage = UIImage(named: "blankPlayer.png")!
-        
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        let getImagePath = paths.stringByAppendingPathComponent(fileName)
-        
-        if UIImage(contentsOfFile: getImagePath) != nil{
-            pic = UIImage(contentsOfFile: getImagePath)!
-        }
-        
-        print(getImagePath)
-        return pic
-    }
-    
-    func savePicture(image : UIImage, index : Int) {
-        let pNum : String = getPlayer(index).playerNumber
+    func savePicture(image : UIImage, player : Player ) {
+        let pNum : String = player.playerNumber
         let fileName : String = pNum + ".png"
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
         let getImagePath = paths.stringByAppendingPathComponent(fileName)
         UIImageJPEGRepresentation(image,1.0)!.writeToFile(getImagePath, atomically: true)
         
+    }
+    
+    private func updatePicturePath(oldPNum : String, newPNum : String) {
+
+        let oldFileName : String = oldPNum + ".png"
+        let newFileName : String = newPNum + ".png"
+        
+        do {
+            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            let documentDirectory = NSURL(fileURLWithPath: path)
+            let originPath = documentDirectory.URLByAppendingPathComponent(oldFileName)
+            let destinationPath = documentDirectory.URLByAppendingPathComponent(newFileName)
+            try NSFileManager.defaultManager().moveItemAtURL(originPath, toURL: destinationPath)
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
     func checkPNumExists(pNum : String) -> Bool {
@@ -191,6 +224,49 @@ final class PlayerStore: NSObject {
         }
         
         return true
+    }
+    
+    func getPlayerImage(index : Int) -> UIImage {
+        
+        let pNum : String = getPlayer(index).playerNumber
+        let fileName : String = pNum + ".png"
+        
+        var pic : UIImage = UIImage(named: "blankPlayer.png")!
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let getImagePath = paths.stringByAppendingPathComponent(fileName)
+        
+        if UIImage(contentsOfFile: getImagePath) != nil{
+            pic = UIImage(contentsOfFile: getImagePath)!
+        }
+        
+        return pic
+    }
+    
+    private func deletePlayerPhoto(pNum : String) {
+        let filename = pNum + ".png"
+        
+        do {
+            
+            
+            let pathF = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+            let url = NSURL(fileURLWithPath: pathF)
+            let filePath = url.URLByAppendingPathComponent(filename).path
+            
+            if NSFileManager.defaultManager().fileExistsAtPath(filePath!) {
+                let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+                let documentDirectory = NSURL(fileURLWithPath: path)
+                let filepath = documentDirectory.URLByAppendingPathComponent(filename)
+                try NSFileManager.defaultManager().removeItemAtURL(filepath)
+                print("deleting pic successful")
+            }
+            else{
+                print("File Doesn't Exist")
+            }
+            
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
 }
