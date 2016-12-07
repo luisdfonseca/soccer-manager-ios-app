@@ -40,9 +40,17 @@ class GamesViewController: UITableViewController {
         formater.dateFormat = "d"
         let dayString = formater.stringFromDate(gamedate)
         
+        formater.dateFormat = "MMM"
+        let monthString = formater.stringFromDate(gamedate)
+        
+        formater.dateFormat = "h:mm a"
+        let timeString = formater.stringFromDate(gamedate)
+
+        
         cell.nameLabel.text = game.opponentName
         cell.dateLabel.text = dayString
-        
+        cell.monthLabel.text = monthString.uppercaseString
+        cell.timeLabel.text = timeString.uppercaseString
         
         return cell
     }
