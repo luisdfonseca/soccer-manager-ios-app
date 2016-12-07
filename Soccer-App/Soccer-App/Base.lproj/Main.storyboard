@@ -192,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="1123.5" y="1290.5"/>
         </scene>
-        <!--Add Game View Controller-->
+        <!--New Game-->
         <scene sceneID="xvq-e7-Tq9">
             <objects>
                 <viewController id="CoX-Ee-a1Q" customClass="AddGameViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,6 +244,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Game" id="t9V-0H-K3l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="pde-Dt-Mtp">
+                            <connections>
+                                <action selector="saveNewgame:" destination="CoX-Ee-a1Q" id="3fP-2N-btr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addressField" destination="YRv-HM-1xe" id="frw-xT-XAy"/>

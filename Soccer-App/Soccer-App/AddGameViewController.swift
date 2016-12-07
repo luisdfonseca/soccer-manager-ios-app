@@ -22,13 +22,15 @@ class AddGameViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        var game = Game(opponentName: nameField.text!, address: addressField.text!, gameDate: dateSelected)
-        
-        games.addGame(game)
         
     }
     
-    
+    @IBAction func saveNewgame(sender: AnyObject) {
+        var game = Game(opponentName: nameField.text!, address: addressField.text!, gameDate: dateSelected)
+        
+        games.addGame(game)
+
+    }
 }
 
 
