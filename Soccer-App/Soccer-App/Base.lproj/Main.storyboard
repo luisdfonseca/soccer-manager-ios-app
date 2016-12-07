@@ -23,38 +23,54 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQH-mB-GZP">
-                                            <rect key="frame" x="18" y="2" width="50" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="CDE-UE-lS0"/>
-                                                <constraint firstAttribute="width" constant="50" id="uaM-4c-lHS"/>
-                                            </constraints>
+                                            <rect key="frame" x="24" y="0.0" width="36" height="38"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                             <color key="textColor" red="0.78620689655172393" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozJ-zi-eX0">
-                                            <rect key="frame" x="104" y="24" width="227" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="227" id="C4s-Ag-ra6"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Doral United SC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozJ-zi-eX0">
+                                            <rect key="frame" x="73" y="24" width="182" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLX-En-FXf">
+                                            <rect key="frame" x="25" y="37" width="30" height="24"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" red="0.72941176470588232" green="0.0" blue="0.015686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ml-4B-5ep">
+                                            <rect key="frame" x="277" y="24" width="78" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SQH-mB-GZP" firstAttribute="top" secondItem="h2j-Bw-uKz" secondAttribute="topMargin" constant="-6" id="880-vb-48l"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="SQH-mB-GZP" secondAttribute="bottom" constant="10" id="Lkt-bc-Cmu"/>
-                                        <constraint firstItem="ozJ-zi-eX0" firstAttribute="leading" secondItem="SQH-mB-GZP" secondAttribute="trailing" constant="20" id="RuC-d0-Anf"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ozJ-zi-eX0" secondAttribute="bottom" constant="16" id="c8e-4Q-dhX"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="SQH-mB-GZP" secondAttribute="bottom" constant="-7" id="rUI-nE-eOG"/>
-                                        <constraint firstItem="SQH-mB-GZP" firstAttribute="leading" secondItem="h2j-Bw-uKz" secondAttribute="leadingMargin" constant="10" id="uzu-PL-Olr"/>
-                                        <constraint firstItem="ozJ-zi-eX0" firstAttribute="top" secondItem="h2j-Bw-uKz" secondAttribute="topMargin" constant="16" id="vKj-Pi-XZn"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ozJ-zi-eX0" secondAttribute="bottom" constant="16" id="0Jo-DD-jAD"/>
+                                        <constraint firstItem="ozJ-zi-eX0" firstAttribute="leading" secondItem="SQH-mB-GZP" secondAttribute="trailing" constant="13" id="0on-nP-EpO"/>
+                                        <constraint firstItem="zLX-En-FXf" firstAttribute="bottom" secondItem="h2j-Bw-uKz" secondAttribute="bottomMargin" id="2Mm-dD-DVW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="SQH-mB-GZP" secondAttribute="bottom" constant="23" id="5nQ-Wz-dwy"/>
+                                        <constraint firstItem="ozJ-zi-eX0" firstAttribute="top" secondItem="h2j-Bw-uKz" secondAttribute="topMargin" constant="16" id="9ql-3B-QXQ"/>
+                                        <constraint firstItem="SQH-mB-GZP" firstAttribute="leading" secondItem="h2j-Bw-uKz" secondAttribute="leadingMargin" constant="16" id="EFZ-IV-2pM"/>
+                                        <constraint firstItem="SQH-mB-GZP" firstAttribute="top" secondItem="h2j-Bw-uKz" secondAttribute="topMargin" constant="-8" id="EZR-3b-9Dw"/>
+                                        <constraint firstItem="ozJ-zi-eX0" firstAttribute="leading" secondItem="zLX-En-FXf" secondAttribute="trailing" constant="18" id="Mp3-6H-lLd"/>
+                                        <constraint firstItem="ozJ-zi-eX0" firstAttribute="leading" secondItem="SQH-mB-GZP" secondAttribute="trailing" constant="13" id="OLg-Dn-ozE"/>
+                                        <constraint firstItem="zLX-En-FXf" firstAttribute="top" secondItem="h2j-Bw-uKz" secondAttribute="topMargin" constant="29" id="VVw-Cv-Nyt"/>
+                                        <constraint firstItem="zLX-En-FXf" firstAttribute="leading" secondItem="h2j-Bw-uKz" secondAttribute="leadingMargin" constant="17" id="Xi1-eq-9lE"/>
+                                        <constraint firstItem="0Ml-4B-5ep" firstAttribute="leading" secondItem="ozJ-zi-eX0" secondAttribute="trailing" constant="22" id="asr-ro-p2d"/>
+                                        <constraint firstItem="0Ml-4B-5ep" firstAttribute="top" secondItem="h2j-Bw-uKz" secondAttribute="topMargin" constant="16" id="bLh-ax-i9N"/>
+                                        <constraint firstItem="0Ml-4B-5ep" firstAttribute="leading" secondItem="ozJ-zi-eX0" secondAttribute="trailing" constant="22" id="t44-G7-Obx"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0Ml-4B-5ep" secondAttribute="bottom" constant="16" id="xVc-tL-tPD"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="0Ml-4B-5ep" secondAttribute="trailing" constant="12" id="zDf-NE-g7N"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="SQH-mB-GZP" id="dYf-ej-21A"/>
+                                    <outlet property="monthLabel" destination="zLX-En-FXf" id="BIo-He-2c3"/>
                                     <outlet property="nameLabel" destination="ozJ-zi-eX0" id="ncq-pe-x4Z"/>
+                                    <outlet property="timeLabel" destination="0Ml-4B-5ep" id="BiH-kh-Rll"/>
                                     <segue destination="W6c-Xb-3fe" kind="show" identifier="ShowItem" id="yth-pj-nxN"/>
                                 </connections>
                             </tableViewCell>
@@ -161,7 +177,7 @@
         <scene sceneID="sEv-nS-rTk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9tw-tE-Hbz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Games" id="min-Nm-yOz"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="football.png" id="min-Nm-yOz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3dh-RB-KRj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -176,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="1123.5" y="1290.5"/>
         </scene>
-        <!--Add Game View Controller-->
+        <!--New Game-->
         <scene sceneID="xvq-e7-Tq9">
             <objects>
                 <viewController id="CoX-Ee-a1Q" customClass="AddGameViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -228,6 +244,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Game" id="t9V-0H-K3l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="pde-Dt-Mtp">
+                            <connections>
+                                <action selector="saveNewgame:" destination="CoX-Ee-a1Q" id="3fP-2N-btr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addressField" destination="YRv-HM-1xe" id="frw-xT-XAy"/>
@@ -621,6 +644,7 @@
     <resources>
         <image name="CameraIcon.png" width="512" height="512"/>
         <image name="blankPlayer.png" width="600" height="568"/>
+        <image name="football.png" width="32" height="32"/>
         <image name="playericon.png" width="40" height="40"/>
     </resources>
 </document>
