@@ -177,7 +177,7 @@
         <scene sceneID="sEv-nS-rTk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9tw-tE-Hbz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Games" id="min-Nm-yOz"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="football.png" id="min-Nm-yOz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3dh-RB-KRj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -644,6 +644,7 @@
     <resources>
         <image name="CameraIcon.png" width="512" height="512"/>
         <image name="blankPlayer.png" width="600" height="568"/>
+        <image name="football.png" width="32" height="32"/>
         <image name="playericon.png" width="40" height="40"/>
     </resources>
 </document>
