@@ -47,6 +47,7 @@ final class GameDatabase {
         {
             print("There is some error.")
         }
+        sortGames()
     }
     
 
@@ -72,6 +73,7 @@ final class GameDatabase {
         }
         
         games.append(game)
+        sortGames()
     }
     
     
@@ -92,6 +94,11 @@ final class GameDatabase {
         }
         
         games.removeAtIndex(atIndex)
+        sortGames()
+    }
+    
+    func sortGames() {
+        games.sortInPlace({$0.date.compare($1.date) == .OrderedAscending })
     }
     
 }

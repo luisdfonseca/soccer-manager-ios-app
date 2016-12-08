@@ -10,7 +10,6 @@ import UIKit
 
 class GamesViewController: UITableViewController {
     
-    
     let store = GameDatabase.sharedInstance
     
     override func viewDidLoad() {
