@@ -167,11 +167,79 @@
                     <connections>
                         <segue destination="Kdi-ZU-Nl4" kind="relationship" relationship="viewControllers" id="6nP-58-sGb"/>
                         <segue destination="9tw-tE-Hbz" kind="relationship" relationship="viewControllers" id="vvx-Qm-NYO"/>
+                        <segue destination="kd8-eu-j2o" kind="relationship" relationship="viewControllers" id="45W-Oi-t57"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KjE-5k-THJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835.5" y="460.5"/>
+        </scene>
+        <!--Performance View Controller-->
+        <scene sceneID="iys-f1-9cY">
+            <objects>
+                <viewController id="jHB-Jk-4ye" customClass="PerformanceViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="olO-Pt-Vjs"/>
+                        <viewControllerLayoutGuide type="bottom" id="1OW-Sn-pYa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QRV-47-x72">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXF-Of-DUg">
+                                <rect key="frame" x="164" y="518" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="643-O9-RX4" kind="show" id="9XZ-wF-lQH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eRg-o6-Vsm"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oUD-JD-uAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3154.5" y="1269.5"/>
+        </scene>
+        <!--Stat Table View Controller-->
+        <scene sceneID="O00-6p-K5S">
+            <objects>
+                <tableViewController id="643-O9-RX4" customClass="StatTableViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="469-oG-2w2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatTableViewCell" textLabel="YOy-vg-6Qi" style="IBUITableViewCellStyleDefault" id="dYY-SB-8Uq" customClass="StatTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dYY-SB-8Uq" id="l6C-8z-xoN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YOy-vg-6Qi">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="643-O9-RX4" id="v9k-hx-Jjh"/>
+                            <outlet property="delegate" destination="643-O9-RX4" id="wny-R2-X1P"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cWQ-rD-m7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3154.5" y="2006.5"/>
         </scene>
         <!--Games-->
         <scene sceneID="sEv-nS-rTk">
@@ -639,6 +707,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YpK-n3-vxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306" y="2166"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Za2-XU-uo7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kd8-eu-j2o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="97d-Wp-XSO"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1xA-HZ-lDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jHB-Jk-4ye" kind="relationship" relationship="rootViewController" id="XSY-JG-Nux"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYN-yy-hAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2699.5" y="1275.5"/>
         </scene>
     </scenes>
     <resources>
