@@ -29,7 +29,7 @@ class StatTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "StatTableViewCell"
+        let cellIdentifier = "cell"
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
@@ -37,7 +37,7 @@ class StatTableViewController: UITableViewController {
         //let game = store.getGame[indexPath.row]
         
         
-        cell.textLabel!.text = stat.name
+        cell.textLabel?.text = stat.name
 
         
         return cell
@@ -56,9 +56,9 @@ class StatTableViewController: UITableViewController {
             
             if let row = tableView.indexPathForSelectedRow?.row {
                 
-               // let game = store.games[row]
-                let detailViewController = segue.destinationViewController as! GameDetailViewController
-               // detailViewController.game = game
+               let stat = store.stats[row]
+                let detailViewController = segue.destinationViewController as! StatDetailViewController
+               detailViewController.stat = stat
             }
         }
     }

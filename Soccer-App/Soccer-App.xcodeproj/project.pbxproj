@@ -31,6 +31,8 @@
 		7B2E62531DF9BF8200A80B1E /* StatStore.swfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62521DF9BF8200A80B1E /* StatStore.swfit.swift */; };
 		7B2E62551DF9BFB600A80B1E /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62541DF9BFB600A80B1E /* PerformanceViewController.swift */; };
 		7B2E62571DF9C0F100A80B1E /* StatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62561DF9C0F100A80B1E /* StatTableViewController.swift */; };
+		7B2E62591DF9C63B00A80B1E /* AddNewStatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E62581DF9C63B00A80B1E /* AddNewStatViewController.swift */; };
+		7B2E625B1DF9C65500A80B1E /* StatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E625A1DF9C65500A80B1E /* StatDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		7B2E62521DF9BF8200A80B1E /* StatStore.swfit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatStore.swfit.swift; sourceTree = "<group>"; };
 		7B2E62541DF9BFB600A80B1E /* PerformanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 		7B2E62561DF9C0F100A80B1E /* StatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatTableViewController.swift; sourceTree = "<group>"; };
+		7B2E62581DF9C63B00A80B1E /* AddNewStatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewStatViewController.swift; sourceTree = "<group>"; };
+		7B2E625A1DF9C65500A80B1E /* StatDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 				7B0785701DF24C6D00E413F2 /* AddGameViewController.swift */,
 				7B2E62541DF9BFB600A80B1E /* PerformanceViewController.swift */,
 				7B2E62561DF9C0F100A80B1E /* StatTableViewController.swift */,
+				7B2E62581DF9C63B00A80B1E /* AddNewStatViewController.swift */,
+				7B2E625A1DF9C65500A80B1E /* StatDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -237,7 +243,9 @@
 				7B2E62501DF9BE7A00A80B1E /* Stat+CoreDataProperties.swift in Sources */,
 				7B2E62351DF3DAAB00A80B1E /* UserDetailViewController.swift in Sources */,
 				1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */,
+				7B2E625B1DF9C65500A80B1E /* StatDetailViewController.swift in Sources */,
 				7B07856B1DEE8EF900E413F2 /* Game.swift in Sources */,
+				7B2E62591DF9C63B00A80B1E /* AddNewStatViewController.swift in Sources */,
 				7B2E623B1DF5E56200A80B1E /* GameTableViewCell.swift in Sources */,
 				1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */,
 				7B2E62531DF9BF8200A80B1E /* StatStore.swfit.swift in Sources */,
