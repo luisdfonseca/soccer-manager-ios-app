@@ -18,7 +18,7 @@
 		1E4CE7ED1DEA1373009BBAA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E4CE7EB1DEA1373009BBAA2 /* LaunchScreen.storyboard */; };
 		1E4CE7F51DEA27C7009BBAA2 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */; };
 		7B07856B1DEE8EF900E413F2 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856A1DEE8EF900E413F2 /* Game.swift */; };
-		7B07856D1DEE97D300E413F2 /* GamesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */; };
+		7B07856D1DEE97D300E413F2 /* GameDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856C1DEE97D300E413F2 /* GameDatabase.swift */; };
 		7B07856F1DF2223D00E413F2 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B07856E1DF2223D00E413F2 /* GameDetailViewController.swift */; };
 		7B0785711DF24C6D00E413F2 /* AddGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0785701DF24C6D00E413F2 /* AddGameViewController.swift */; };
 		7B2E62331DF3DA4000A80B1E /* CameraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2E62321DF3DA4000A80B1E /* CameraIcon.png */; };
@@ -42,7 +42,7 @@
 		1E4CE7EE1DEA1373009BBAA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E4CE7F41DEA27C7009BBAA2 /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		7B07856A1DEE8EF900E413F2 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesDatabase.swift; sourceTree = "<group>"; };
+		7B07856C1DEE97D300E413F2 /* GameDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDatabase.swift; sourceTree = "<group>"; };
 		7B07856E1DF2223D00E413F2 /* GameDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		7B0785701DF24C6D00E413F2 /* AddGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGameViewController.swift; sourceTree = "<group>"; };
 		7B2E62321DF3DA4000A80B1E /* CameraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraIcon.png; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			children = (
 				7B2E62361DF3DAD200A80B1E /* PlayerStore.swift */,
 				7B07856A1DEE8EF900E413F2 /* Game.swift */,
-				7B07856C1DEE97D300E413F2 /* GamesDatabase.swift */,
+				7B07856C1DEE97D300E413F2 /* GameDatabase.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 				7B2E623B1DF5E56200A80B1E /* GameTableViewCell.swift in Sources */,
 				1E4CE7E21DEA1373009BBAA2 /* UserViewController.swift in Sources */,
 				1E4CE7E01DEA1373009BBAA2 /* AppDelegate.swift in Sources */,
-				7B07856D1DEE97D300E413F2 /* GamesDatabase.swift in Sources */,
+				7B07856D1DEE97D300E413F2 /* GameDatabase.swift in Sources */,
 				1E4CE7E81DEA1373009BBAA2 /* Soccer_App.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

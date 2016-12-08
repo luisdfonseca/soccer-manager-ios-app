@@ -10,7 +10,8 @@ import UIKit
 
 class GamesViewController: UITableViewController {
     
-    let games = GamesDatabase.sharedInstance
+    
+    let store = GameDatabase.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +21,12 @@ class GamesViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        store.fetchAllGames()
         tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.allGames.count
+        return store.games.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -32,9 +34,10 @@ class GamesViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GameTableViewCell
         
-        let game = games.allGames[indexPath.row]
+        let game = store.games[indexPath.row]
+        //let game = store.getGame[indexPath.row]
         
-        let gamedate = game.gameDate
+        let gamedate = game.date
         
         let formater = NSDateFormatter()
         formater.dateFormat = "d"
@@ -47,7 +50,7 @@ class GamesViewController: UITableViewController {
         let timeString = formater.stringFromDate(gamedate)
 
         
-        cell.nameLabel.text = game.opponentName
+        cell.nameLabel.text = game.name
         cell.dateLabel.text = dayString
         cell.monthLabel.text = monthString.uppercaseString
         cell.timeLabel.text = timeString.uppercaseString
@@ -57,8 +60,7 @@ class GamesViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete{
-            let g = games.allGames[indexPath.row]
-            games.removeGame(g)
+            store.removeGame(indexPath.row)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
@@ -69,7 +71,7 @@ class GamesViewController: UITableViewController {
             
             if let row = tableView.indexPathForSelectedRow?.row {
                 
-                let game = games.allGames[row]
+                let game = store.games[row]
                 let detailViewController = segue.destinationViewController as! GameDetailViewController
                 detailViewController.game = game
             }

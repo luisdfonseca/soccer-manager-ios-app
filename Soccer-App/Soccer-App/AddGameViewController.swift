@@ -2,12 +2,14 @@ import UIKit
 
 class AddGameViewController: UIViewController {
     
+     let store = GameDatabase.sharedInstance
+    
     @IBOutlet var addressField: UITextField!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var dateField: UIDatePicker!
     
     
-    let games = GamesDatabase.sharedInstance
+    //let games = GamesDatabase.sharedInstance
     var dateSelected = NSDate()
     
     
@@ -26,10 +28,9 @@ class AddGameViewController: UIViewController {
     }
     
     @IBAction func saveNewgame(sender: AnyObject) {
-        var game = Game(opponentName: nameField.text!, address: addressField.text!, gameDate: dateSelected)
         
-        games.addGame(game)
-
+       store.saveGame(nameField.text!, address: addressField.text!, date: dateSelected)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }
 

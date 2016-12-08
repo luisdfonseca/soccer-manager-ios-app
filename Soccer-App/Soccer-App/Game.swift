@@ -1,16 +1,17 @@
 import UIKit
+import  CoreData
 
-class Game: NSObject{
+class Game: NSManagedObject{
     
-    var opponentName:String
-    var address: String
-    var gameDate: NSDate
+    @NSManaged var name:String
+    @NSManaged var address: String
+    @NSManaged var date: NSDate
     
-    init(opponentName: String, address: String, gameDate: NSDate) {
-        self.opponentName = opponentName
-        self.address = address
-        self.gameDate = gameDate
+    override func awakeFromInsert(){
+        super.awakeFromInsert()
         
-        super.init()
+        name = ""
+        address = ""
+        date = NSDate()
     }
 }

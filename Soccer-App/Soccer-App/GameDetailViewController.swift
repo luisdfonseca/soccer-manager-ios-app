@@ -24,14 +24,14 @@ class GameDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
        
-        nameField.text = game.opponentName
+        nameField.text = game.name
         addressField.text = game.address
         
         
         dateformatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateformatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        let time = dateformatter.stringFromDate(game.gameDate)
+        let time = dateformatter.stringFromDate(game.date)
         
          dateField.text = time
     }
@@ -40,7 +40,7 @@ class GameDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         game.address = addressField.text ?? ""
-        game.opponentName = nameField.text!
+        game.name = nameField.text!
         
         //dateformatter.dateFormat = "MM/dd/yy h:mm a Z"
         
