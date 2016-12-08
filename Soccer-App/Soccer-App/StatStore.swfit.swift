@@ -12,8 +12,17 @@ import CoreData
 final class StatStore {
     
     static let sharedInstance = StatStore()
+    let gameStore = GameDatabase.sharedInstance
     
     var stats = [Stat]()
+    
+    var gamesWon = Int()
+    var gamesLost = Int()
+    var gamesDraw = Int()
+    var goalsScored = Double()
+    var shots = Double()
+    var goalsReceived = Double()
+
     
     init() {
         fillStatView()
@@ -84,6 +93,61 @@ final class StatStore {
         stats.append(stat)
         
     }
+    
+    func getGamesPlayed() -> Int {
+        return stats.count
+    }
+    
+    func updateData() {
+        gamesWon = 0
+        gamesDraw = 0
+        gamesLost = 0
+        
+        goalsScored = 0
+        goalsReceived = 0
+        shots = 0
+        
+        for stat in stats{
+            if Int(stat.goals!) > Int(stat.oGoals!) {
+                gamesWon += 1
+            } else if Int(stat.goals!) < Int(stat.oGoals!) {
+                gamesLost += 1
+            }else{
+                gamesDraw += 1
+            }
+            
+            goalsScored += Double(stat.goals!)
+            shots += Double(stat.shots!)
+            goalsReceived += Double(stat.oGoals!)
+            
+        }
+    }
+    
+    func getGamesWon() -> String {
+        return String(gamesWon)
+    }
+    
+    func getGamesLost() -> String {
+            return String(gamesLost)
+    }
+    
+    func getGamesDraw() -> String {
+        return String(gamesDraw)
+    }
+    
+    func getAverageGoalsScored()-> String {
+        return String(goalsScored/Double(stats.count))
+    }
+    
+    func getAverageShots()-> String {
+        return String(shots/Double(stats.count))
+    }
+    
+    func getAverageGoalsRecieved()-> String {
+        return String(goalsReceived/Double(stats.count))
+    }
+    
+    
     
     /*
      func removeGame(atIndex: Int){
