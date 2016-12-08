@@ -32,6 +32,15 @@ class AddGameViewController: UIViewController {
        store.saveGame(nameField.text!, address: addressField.text!, date: dateSelected)
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+
 }
 
 
