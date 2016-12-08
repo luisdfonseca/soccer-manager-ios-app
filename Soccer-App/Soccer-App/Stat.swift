@@ -17,14 +17,14 @@ class Stat: NSManagedObject {
         super.awakeFromInsert()
         
         // Give the properties their initial values
-        goals = ""
-        oGoals = ""
-        shots = ""
-        oShots = ""
-        cards = ""
-        oCards = ""
-        fouls = ""
-        oFouls = ""
+        goals = 0
+        oGoals = 0
+        shots = 0
+        oShots = 0
+        cards = 0
+        oCards = 0
+        fouls = 0
+        oFouls = 0
         name = ""
         notes = ""
     }

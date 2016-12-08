@@ -21,8 +21,8 @@ final class StatStore {
     
     func fillStatView(){
         
-        saveStat("Prueba", oGoals: "Prueba", fouls: "Prueba", oFouls: "Prueba", shots: "Prueba", oShots: "Prueba", cards: "Prueba",
-                 oCards: "Prueba", name: "Doral", notes: "good game" )
+        saveStat(2, oGoals: 2, fouls: 2, oFouls: 2, shots: 2, oShots: 2, cards: 2,
+                 oCards: 2, name: "Doral", notes: "good game" )
     }
     
     
@@ -53,8 +53,8 @@ final class StatStore {
      }*/
     
     
-    func saveStat(goals: String, oGoals: String, fouls: String, oFouls: String, shots: String, oShots: String,
-                  cards: String, oCards: String, name: String, notes: String)
+    func saveStat(goals: Int, oGoals: Int, fouls: Int, oFouls: Int, shots: Int, oShots: Int,
+                  cards: Int, oCards: Int, name: String, notes: String)
     {
         let appDelegate    = UIApplication.sharedApplication().delegate as? AppDelegate
         let managedContext = appDelegate!.managedObjectContext

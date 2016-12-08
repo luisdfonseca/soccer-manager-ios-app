@@ -203,7 +203,7 @@
             </objects>
             <point key="canvasLocation" x="3154.5" y="1269.5"/>
         </scene>
-        <!--Add New Stat View Controller-->
+        <!--Add New Stat-->
         <scene sceneID="q8J-Zw-44Z">
             <objects>
                 <viewController id="BDP-34-bwK" customClass="AddNewStatViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -215,6 +215,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMQ-v6-Xyt">
+                                <rect key="frame" x="56" y="106" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHE-yi-qK1">
                                 <rect key="frame" x="58" y="152" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -233,6 +239,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wzQ-da-kO5">
+                                <rect key="frame" x="115" y="102" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="20s-9u-WNc">
                                 <rect key="frame" x="52" y="558" width="294" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -240,11 +251,6 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXl-JB-oDq">
                                 <rect key="frame" x="91" y="192" width="71" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-sz-hlE">
-                                <rect key="frame" x="250" y="192" width="71" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -338,27 +344,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMQ-v6-Xyt">
-                                <rect key="frame" x="56" y="106" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wzQ-da-kO5">
-                                <rect key="frame" x="115" y="102" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-sz-hlE">
+                                <rect key="frame" x="250" y="192" width="71" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add New Stat" id="4sh-mb-FWO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="s57-bU-BqL">
+                            <connections>
+                                <action selector="saveStat:" destination="BDP-34-bwK" id="RjV-2Y-C5l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="cardsField" destination="Arw-ld-NL6" id="Nz6-Mf-9yf"/>
+                        <outlet property="foulsField" destination="JB7-wK-Shn" id="vGw-b3-zj2"/>
+                        <outlet property="goalsField" destination="HXl-JB-oDq" id="ejx-FP-ZWs"/>
+                        <outlet property="nameField" destination="wzQ-da-kO5" id="7MV-LV-wFU"/>
+                        <outlet property="notesField" destination="20s-9u-WNc" id="7qd-02-XHw"/>
+                        <outlet property="oCardsField" destination="HGS-hB-aiT" id="o8D-Kf-hx4"/>
+                        <outlet property="oFoulsField" destination="kmF-ID-gEc" id="gQP-rq-6MZ"/>
+                        <outlet property="oGoalsField" destination="7hK-sz-hlE" id="sMG-3B-Nto"/>
+                        <outlet property="oShotsField" destination="bTC-iY-haK" id="fHS-YA-CDH"/>
+                        <outlet property="shotsField" destination="rx6-Jf-3yW" id="lTF-SM-lYZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIu-vi-4Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2999.5" y="2789.5"/>
+            <point key="canvasLocation" x="3154.5" y="2827.5"/>
         </scene>
-        <!--Stat Table View Controller-->
+        <!--Stats-->
         <scene sceneID="O00-6p-K5S">
             <objects>
                 <tableViewController id="643-O9-RX4" customClass="StatTableViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -393,6 +412,13 @@
                             <outlet property="delegate" destination="643-O9-RX4" id="wny-R2-X1P"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Stats" id="RIm-zr-dmb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VoE-Rl-IXD">
+                            <connections>
+                                <segue destination="BDP-34-bwK" kind="show" id="rD4-sY-3tP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWQ-rD-m7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -886,7 +912,7 @@
             </objects>
             <point key="canvasLocation" x="2699.5" y="1275.5"/>
         </scene>
-        <!--Stat Detail View Controller-->
+        <!--Stat-->
         <scene sceneID="4ze-HI-2We">
             <objects>
                 <viewController id="wnc-qp-I9X" customClass="StatDetailViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -1035,6 +1061,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Stat" id="DTe-HE-Fk4"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="cardsField" destination="kSX-2O-7tF" id="FKL-Ax-6Qe"/>

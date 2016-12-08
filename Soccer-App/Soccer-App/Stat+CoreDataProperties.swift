@@ -14,14 +14,14 @@ import CoreData
 
 extension Stat {
 
-    @NSManaged var goals: String?
-    @NSManaged var oGoals: String?
-    @NSManaged var shots: String?
-    @NSManaged var oShots: String?
-    @NSManaged var cards: String?
-    @NSManaged var oCards: String?
-    @NSManaged var fouls: String?
-    @NSManaged var oFouls: String?
+    @NSManaged var goals: NSNumber?
+    @NSManaged var oGoals: NSNumber?
+    @NSManaged var shots: NSNumber?
+    @NSManaged var oShots: NSNumber?
+    @NSManaged var cards: NSNumber?
+    @NSManaged var oCards: NSNumber?
+    @NSManaged var fouls: NSNumber?
+    @NSManaged var oFouls: NSNumber?
     @NSManaged var name: String?
     @NSManaged var notes: String?
 

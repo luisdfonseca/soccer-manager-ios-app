@@ -29,14 +29,14 @@ class StatDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         nameField.text = stat.name
-        goalsField.text = stat.goals
-         oGoalsField.text = stat.oGoals
-         shotsField.text = stat.shots
-         oShotsField.text = stat.oShots
-        cardsField.text = stat.cards
-         oCardsField.text = stat.oCards
-         foulsField.text = stat.fouls
-         oFoulsField.text = stat.oFouls
+        goalsField.text = stat.goals?.stringValue
+         oGoalsField.text = stat.oGoals?.stringValue
+         shotsField.text = stat.shots?.stringValue
+         oShotsField.text = stat.oShots?.stringValue
+        cardsField.text = stat.cards?.stringValue
+         oCardsField.text = stat.oCards?.stringValue
+         foulsField.text = stat.fouls?.stringValue
+         oFoulsField.text = stat.oFouls?.stringValue
          notesField.text = stat.notes
       
     }
@@ -45,14 +45,14 @@ class StatDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         stat.name = nameField.text ?? ""
-         stat.goals = goalsField.text!
-         stat.oGoals = oGoalsField.text!
-         stat.shots = shotsField.text!
-        stat.oShots =  oShotsField.text!
-        stat.cards = cardsField.text!
-         stat.oCards = oCardsField.text!
-        stat.fouls = foulsField.text!
-        stat.oFouls =  oFoulsField.text!
+         stat.goals = Int(goalsField.text!)
+         stat.oGoals = Int(oGoalsField.text!)
+         stat.shots = Int(shotsField.text!)
+        stat.oShots =  Int(oShotsField.text!)
+        stat.cards = Int(cardsField.text!)
+         stat.oCards = Int(oCardsField.text!)
+        stat.fouls = Int(foulsField.text!)
+        stat.oFouls =  Int(oFoulsField.text!)
          stat.notes = notesField.text!
     }
     
