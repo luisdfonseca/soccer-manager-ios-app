@@ -59,6 +59,7 @@ class StatTableViewController: UITableViewController {
                let stat = store.stats[row]
                 let detailViewController = segue.destinationViewController as! StatDetailViewController
                detailViewController.stat = stat
+                detailViewController.indexPath = row
             }
         }
     }

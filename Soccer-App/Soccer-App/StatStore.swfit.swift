@@ -149,29 +149,26 @@ final class StatStore {
     
     
     
-    /*
-     func removeGame(atIndex: Int){
-     let appDelegate    = UIApplication.sharedApplication().delegate as! AppDelegate
-     let managedContext = appDelegate.managedObjectContext
-     let objectToRemove = games[atIndex] as Game
+    
+     func removeStat(atIndex: Int){
+        let appDelegate    = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let objectToRemove = stats[atIndex] as Stat
      
-     managedContext.deleteObject(objectToRemove)
+        managedContext.deleteObject(objectToRemove)
      
-     do
-     {
-     try managedContext.save()
+        do
+        {
+            try managedContext.save()
+        }
+        catch
+        {
+            print("There is some error while updating CoreData.")
+        }
+     
+        stats.removeAtIndex(atIndex)
      }
-     catch
-     {
-     print("There is some error while updating CoreData.")
-     }
      
-     games.removeAtIndex(atIndex)
-     sortGames()
-     }
-     
-     func sortGames() {
-     games.sortInPlace({$0.date.compare($1.date) == .OrderedAscending })
-     }*/
+ 
     
 }

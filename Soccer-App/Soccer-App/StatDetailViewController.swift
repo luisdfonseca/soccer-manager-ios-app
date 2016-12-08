@@ -10,6 +10,8 @@ import UIKit
 
 class StatDetailViewController: UIViewController {
     
+    let store = StatStore.sharedInstance
+
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var goalsField: UITextField!
@@ -24,6 +26,7 @@ class StatDetailViewController: UIViewController {
     
     
     var stat: Stat!
+    var indexPath: Int!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,5 +59,10 @@ class StatDetailViewController: UIViewController {
          stat.notes = notesField.text!
     }
     
+    @IBAction func deleteButtonPressed(sender: AnyObject) {
+        store.removeStat(indexPath)
+         self.navigationController?.popViewControllerAnimated(true)
+        
+    }
     
 }
