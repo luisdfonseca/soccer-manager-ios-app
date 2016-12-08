@@ -148,8 +148,6 @@ final class StatStore {
     }
     
     
-    
-    
      func removeStat(atIndex: Int){
         let appDelegate    = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext

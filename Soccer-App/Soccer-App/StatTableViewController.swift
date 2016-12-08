@@ -38,6 +38,18 @@ class StatTableViewController: UITableViewController {
         
         
         cell.textLabel?.text = stat.name
+        
+        var color = UIColor()
+        
+        if Int(stat.goals!) > Int(stat.oGoals!) {
+            color = UIColor.greenColor()
+        } else if Int(stat.goals!) == Int(stat.oGoals!){
+            color = UIColor.grayColor()
+        }else {
+            color = UIColor.redColor()
+        }
+        
+        cell.textLabel?.textColor = color
 
         
         return cell
