@@ -34,6 +34,44 @@ class AddNewStatViewController: UIViewController {
         //store.saveGame(nameField.text!, address: addressField.text!, date: dateSelected)
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.isEqual(nameField){
+            
+        } else if textField.isEqual(notesField){
+            animateViewMoving(true, moveValue: 200)
+        }else{
+            animateViewMoving(true, moveValue: 100)
+        }
+       
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField.isEqual(nameField){
+            
+        } else if textField.isEqual(notesField){
+            animateViewMoving(false, moveValue: 200)
+        }else{
+            animateViewMoving(false, moveValue: 100)
+        }
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:NSTimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        UIView.commitAnimations()
+    }
 }
 
 
