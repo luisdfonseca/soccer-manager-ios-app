@@ -1127,11 +1127,11 @@
             </objects>
             <point key="canvasLocation" x="306" y="2166"/>
         </scene>
-        <!--Item-->
+        <!--Stats-->
         <scene sceneID="Za2-XU-uo7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kd8-eu-j2o" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="97d-Wp-XSO"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="stats.png" id="97d-Wp-XSO"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1xA-HZ-lDZ">
@@ -1394,5 +1394,6 @@
         <image name="blankPlayer.png" width="600" height="568"/>
         <image name="football.png" width="32" height="32"/>
         <image name="playericon.png" width="40" height="40"/>
+        <image name="stats.png" width="24" height="24"/>
     </resources>
 </document>

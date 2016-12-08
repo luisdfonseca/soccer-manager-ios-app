@@ -33,6 +33,7 @@
 		7B2E625B1DF9C65500A80B1E /* StatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E625A1DF9C65500A80B1E /* StatDetailViewController.swift */; };
 		7B2E625D1DF9D48800A80B1E /* Stat+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E625C1DF9D48800A80B1E /* Stat+CoreDataProperties.swift */; };
 		7B2E625F1DF9D4D700A80B1E /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E625E1DF9D4D700A80B1E /* Stat.swift */; };
+		7B2E62611DFA15C000A80B1E /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B2E62601DFA15C000A80B1E /* stats.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		7B2E625A1DF9C65500A80B1E /* StatDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDetailViewController.swift; sourceTree = "<group>"; };
 		7B2E625C1DF9D48800A80B1E /* Stat+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stat+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7B2E625E1DF9D4D700A80B1E /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
+		7B2E62601DFA15C000A80B1E /* stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stats.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		0E9F76831DF1E8A400B61F59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E62601DFA15C000A80B1E /* stats.png */,
 				7B2E623D1DF8C96300A80B1E /* football.png */,
 				0E0FF5D61DF64C9300BF2B84 /* playericon.png */,
 				7B2E62321DF3DA4000A80B1E /* CameraIcon.png */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E0FF5D71DF64C9300BF2B84 /* playericon.png in Resources */,
+				7B2E62611DFA15C000A80B1E /* stats.png in Resources */,
 				7B2E62331DF3DA4000A80B1E /* CameraIcon.png in Resources */,
 				7B2E623E1DF8C96300A80B1E /* football.png in Resources */,
 				0E9F76821DF1E89C00B61F59 /* blankPlayer.png in Resources */,
