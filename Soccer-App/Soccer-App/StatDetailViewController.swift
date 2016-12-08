@@ -60,8 +60,29 @@ class StatDetailViewController: UIViewController {
     }
     
     @IBAction func deleteButtonPressed(sender: AnyObject) {
-        store.removeStat(indexPath)
-         self.navigationController?.popViewControllerAnimated(true)
+        
+        let title = "Delete Stat"
+        let message = "Are you sure you want to delete this?"
+        
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel,
+                                         handler: nil)
+        ac.addAction(cancelAction)
+        
+        let deletAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {
+            (action) -> Void in
+            
+            self.store.removeStat(self.indexPath)
+            self.navigationController?.popViewControllerAnimated(true)
+
+        })
+        
+        ac.addAction(deletAction)
+        presentViewController(ac, animated: true, completion: nil)
+        
+       
+
         
     }
     
