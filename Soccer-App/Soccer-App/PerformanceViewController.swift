@@ -28,7 +28,6 @@ class PerformanceViewController: UIViewController {
         avgGoalsReceivedLabel.text = statStore.getAverageGoalsRecieved()
         avgShots.text = statStore.getAverageShots()
         
-        
     }
     
     

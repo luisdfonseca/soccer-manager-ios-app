@@ -14,13 +14,11 @@ class StatTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //store.fetchAllGames()
         tableView.reloadData()
     }
     
@@ -34,13 +32,13 @@ class StatTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         let stat = store.stats[indexPath.row]
-        //let game = store.getGame[indexPath.row]
-        
         
         cell.textLabel?.text = stat.name
         
+        // store a color to be use in the cell
         var color = UIColor()
         
+        // displays the name of the game depending of the result ( green = won, etc..)
         if Int(stat.goals!) > Int(stat.oGoals!) {
             color = UIColor.greenColor()
         } else if Int(stat.goals!) == Int(stat.oGoals!){
@@ -55,14 +53,6 @@ class StatTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete{
-            //store.removeGame(indexPath.row)
-            
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        }
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowItem" {
             
@@ -75,25 +65,6 @@ class StatTableViewController: UITableViewController {
             }
         }
     }
-    
-    
-    @IBAction func toggleEditingMode(sender: AnyObject) {
-        if editing {
-            sender.setTitle("Edit", forState: .Normal)
-            
-            setEditing(false, animated: true)
-        } else{
-            sender.setTitle("Done", forState: .Normal)
-            
-            setEditing(true, animated: true)
-        }
-    }
-    
-    /*required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder)
-        
-        navigationItem.leftBarButtonItem = editButtonItem()
-    }*/
     
 }
 

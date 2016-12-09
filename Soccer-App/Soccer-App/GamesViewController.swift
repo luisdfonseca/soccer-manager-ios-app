@@ -14,7 +14,6 @@ class GamesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,8 +33,8 @@ class GamesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GameTableViewCell
         
         let game = store.games[indexPath.row]
-        //let game = store.getGame[indexPath.row]
         
+        // Format the date and time text to be displayed in the table view controller
         let gamedate = game.date
         
         let formater = NSDateFormatter()

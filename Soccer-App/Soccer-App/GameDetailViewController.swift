@@ -23,9 +23,7 @@ class GameDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        dateField.userInteractionEnabled = false
-        nameField.userInteractionEnabled = false
-        addressField.userInteractionEnabled = false
+       textFieldUserInteraction(false)
        
         nameField.text = game.name
         addressField.text = game.address
@@ -47,6 +45,8 @@ class GameDetailViewController: UIViewController {
         
     }
     
+    
+    // Used for updating the values in the text field. 
     @IBAction func toggleEditingMode(sender: AnyObject) {
         
         let g = game
@@ -69,12 +69,14 @@ class GameDetailViewController: UIViewController {
         }
     }
     
+    // set the title of the right bar button to edit
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
         
         navigationItem.rightBarButtonItem?.title = "Edit"
     }
     
+    // Enable/ Disable Text fields in view
     func textFieldUserInteraction(b: Bool){
         dateField.userInteractionEnabled = b
         nameField.userInteractionEnabled = b

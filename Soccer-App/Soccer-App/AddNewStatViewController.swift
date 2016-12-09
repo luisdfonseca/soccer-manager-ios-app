@@ -31,7 +31,6 @@ class AddNewStatViewController: UIViewController {
         
         store.saveStat(Int(goalsField.text!)!, oGoals: Int(oGoalsField.text!)!, fouls: Int(foulsField.text!)!, oFouls: Int(oFoulsField.text!)!, shots: Int(shotsField.text!)!, oShots: Int(oShotsField.text!)!, cards: Int(cardsField.text!)!, oCards: Int(oCardsField.text!)!, name: nameField.text!, notes: notesField.text!)
         
-        //store.saveGame(nameField.text!, address: addressField.text!, date: dateSelected)
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -40,7 +39,6 @@ class AddNewStatViewController: UIViewController {
         textField.resignFirstResponder()
         return true
     }
-    
     
     
     func textFieldDidBeginEditing(textField: UITextField) {

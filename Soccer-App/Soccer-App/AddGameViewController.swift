@@ -9,7 +9,6 @@ class AddGameViewController: UIViewController {
     @IBOutlet var dateField: UIDatePicker!
     
     
-    //let games = GamesDatabase.sharedInstance
     var dateSelected = NSDate()
     
     

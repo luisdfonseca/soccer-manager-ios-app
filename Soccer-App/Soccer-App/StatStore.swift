@@ -12,10 +12,10 @@ import CoreData
 final class StatStore {
     
     static let sharedInstance = StatStore()
-    let gameStore = GameDatabase.sharedInstance
     
     var stats = [Stat]()
     
+    // variables used to store performance values
     var gamesWon = Int()
     var gamesLost = Int()
     var gamesDraw = Int()
@@ -33,34 +33,6 @@ final class StatStore {
         saveStat(2, oGoals: 2, fouls: 2, oFouls: 2, shots: 2, oShots: 2, cards: 2,
                  oCards: 2, name: "Doral", notes: "good game" )
     }
-    
-    
-    
-    /*func fetchAllGames(){
-     let appDelegate    = UIApplication.sharedApplication().delegate as! AppDelegate
-     let managedContext = appDelegate.managedObjectContext
-     let fetchRequest   = NSFetchRequest(entityName: "Game")
-     
-     do
-     {
-     let fetchedResult = try managedContext.executeFetchRequest(fetchRequest) as? [Game]
-     
-     if let results = fetchedResult
-     {
-     games = results
-     }
-     else
-     {
-     print("Could not fetch result")
-     }
-     }
-     catch
-     {
-     print("There is some error.")
-     }
-     sortGames()
-     }*/
-    
     
     func saveStat(goals: Int, oGoals: Int, fouls: Int, oFouls: Int, shots: Int, oShots: Int,
                   cards: Int, oCards: Int, name: String, notes: String)
@@ -94,10 +66,32 @@ final class StatStore {
         
     }
     
+    // return the number of stats stored
     func getGamesPlayed() -> Int {
         return stats.count
     }
     
+     func removeStat(atIndex: Int){
+        let appDelegate    = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let objectToRemove = stats[atIndex] as Stat
+     
+        managedContext.deleteObject(objectToRemove)
+     
+        do
+        {
+            try managedContext.save()
+        }
+        catch
+        {
+            print("There is some error while updating CoreData.")
+        }
+     
+        stats.removeAtIndex(atIndex)
+     }
+    
+    
+    // Update statistics variables with the lastest game values
     func updateData() {
         gamesWon = 0
         gamesDraw = 0
@@ -123,12 +117,14 @@ final class StatStore {
         }
     }
     
+    //Return stats values in String to be displayed in performance view controller
+    
     func getGamesWon() -> String {
         return String(gamesWon)
     }
     
     func getGamesLost() -> String {
-            return String(gamesLost)
+        return String(gamesLost)
     }
     
     func getGamesDraw() -> String {
@@ -147,26 +143,6 @@ final class StatStore {
         return String(goalsReceived/Double(stats.count))
     }
     
-    
-     func removeStat(atIndex: Int){
-        let appDelegate    = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let objectToRemove = stats[atIndex] as Stat
-     
-        managedContext.deleteObject(objectToRemove)
-     
-        do
-        {
-            try managedContext.save()
-        }
-        catch
-        {
-            print("There is some error while updating CoreData.")
-        }
-     
-        stats.removeAtIndex(atIndex)
-     }
-     
  
     
 }
