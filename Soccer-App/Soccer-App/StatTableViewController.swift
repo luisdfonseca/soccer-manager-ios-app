@@ -19,6 +19,7 @@ class StatTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        store.fetchAllStats()
         tableView.reloadData()
     }
     

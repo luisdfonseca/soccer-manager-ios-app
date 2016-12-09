@@ -13,10 +13,21 @@ class PerformanceViewController: UIViewController {
     @IBOutlet weak var avgGoalsReceivedLabel: UILabel!
     @IBOutlet weak var avgShots: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fillDisplay()
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        fillDisplay()
+    }
+    
+    
+    func fillDisplay(){
         statStore.updateData()
         
         gamesPlayedLabel.text = String(statStore.getGamesPlayed())
@@ -27,14 +38,7 @@ class PerformanceViewController: UIViewController {
         avgGoalsScoredLabel.text = statStore.getAverageGoalsScored()
         avgGoalsReceivedLabel.text = statStore.getAverageGoalsRecieved()
         avgShots.text = statStore.getAverageShots()
-        
-    }
-    
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        
+
     }
     
     
