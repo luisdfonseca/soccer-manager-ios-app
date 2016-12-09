@@ -101,4 +101,44 @@ final class GameDatabase {
         games.sortInPlace({$0.date.compare($1.date) == .OrderedAscending })
     }
     
+    func editGame(name: String, address: String, date: NSDate, g: Game)
+    {
+        let index = games.indexOf(g)
+        
+        let appDelegate    = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest   = NSFetchRequest(entityName: "Game")
+        
+        do
+        {
+            let fetchResult = try managedContext.executeFetchRequest(fetchRequest) as? [Game]
+            
+            if let theResult = fetchResult
+            {
+                let gameToUpdate = theResult[index!] as Game
+                gameToUpdate.setValue(name, forKey:"name")
+                gameToUpdate.setValue(address, forKey: "address")
+                gameToUpdate.setValue(date, forKey: "date")
+                
+                do
+                {
+                    try managedContext.save()
+                }
+                catch
+                {
+                    print("There is some error.")
+                }
+                
+                if games.contains(gameToUpdate)
+                {
+                    games.replaceRange(index!...index!, with: [gameToUpdate])
+                }
+            }
+        }
+        catch
+        {
+            print("Some error in fetching queries.")
+        }
+    }
+    
 }

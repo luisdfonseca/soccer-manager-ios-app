@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="1569.5" y="1290.5"/>
         </scene>
-        <!--Game Detail View Controller-->
+        <!--Game-->
         <scene sceneID="cmc-qH-XGa">
             <objects>
                 <viewController id="W6c-Xb-3fe" customClass="GameDetailViewController" customModule="Soccer_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,34 +107,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUe-Zu-zUt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUe-Zu-zUt">
                                 <rect key="frame" x="159" y="245" width="146" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TTz-uk-j4P">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TTz-uk-j4P">
                                 <rect key="frame" x="159" y="311" width="146" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzV-tI-LgQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bzV-tI-LgQ">
                                 <rect key="frame" x="159" y="162" width="146" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uum-22-Ipl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uum-22-Ipl">
                                 <rect key="frame" x="93" y="311" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSp-MQ-dN7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSp-MQ-dN7">
                                 <rect key="frame" x="66" y="249" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opponent " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50e-4P-SY4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opponent " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50e-4P-SY4">
                                 <rect key="frame" x="48" y="166" width="81" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,7 +142,31 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bzV-tI-LgQ" secondAttribute="trailing" constant="54" id="9Gj-qx-NUE"/>
+                            <constraint firstItem="nSp-MQ-dN7" firstAttribute="trailing" secondItem="Uum-22-Ipl" secondAttribute="trailing" id="9Mu-pa-LRK"/>
+                            <constraint firstItem="TTz-uk-j4P" firstAttribute="top" secondItem="jUe-Zu-zUt" secondAttribute="bottom" constant="36" id="ACP-jB-SGY"/>
+                            <constraint firstItem="jUe-Zu-zUt" firstAttribute="top" secondItem="bzV-tI-LgQ" secondAttribute="bottom" constant="53" id="Hrg-vw-0T5"/>
+                            <constraint firstItem="bzV-tI-LgQ" firstAttribute="top" secondItem="LCZ-SL-jfR" secondAttribute="bottom" constant="98" id="MWW-rT-kRW"/>
+                            <constraint firstItem="50e-4P-SY4" firstAttribute="trailing" secondItem="nSp-MQ-dN7" secondAttribute="trailing" id="Nra-q1-4Yk"/>
+                            <constraint firstItem="jUe-Zu-zUt" firstAttribute="leading" secondItem="TTz-uk-j4P" secondAttribute="leading" id="OAI-zW-Axw"/>
+                            <constraint firstItem="bzV-tI-LgQ" firstAttribute="leading" secondItem="jUe-Zu-zUt" secondAttribute="leading" id="WFv-87-HTx"/>
+                            <constraint firstItem="nSp-MQ-dN7" firstAttribute="centerY" secondItem="jUe-Zu-zUt" secondAttribute="centerY" id="YTo-Nz-g0t"/>
+                            <constraint firstItem="bzV-tI-LgQ" firstAttribute="leading" secondItem="50e-4P-SY4" secondAttribute="trailing" constant="30" id="f1N-t0-cQz"/>
+                            <constraint firstItem="50e-4P-SY4" firstAttribute="leading" secondItem="KpY-Tx-dtz" secondAttribute="leadingMargin" constant="32" id="f8i-Pj-Ajg"/>
+                            <constraint firstItem="jUe-Zu-zUt" firstAttribute="trailing" secondItem="TTz-uk-j4P" secondAttribute="trailing" id="gYe-aN-v4h"/>
+                            <constraint firstItem="bzV-tI-LgQ" firstAttribute="trailing" secondItem="jUe-Zu-zUt" secondAttribute="trailing" id="mDb-xt-0Gf"/>
+                            <constraint firstItem="50e-4P-SY4" firstAttribute="centerY" secondItem="bzV-tI-LgQ" secondAttribute="centerY" id="ug3-ob-ifa"/>
+                            <constraint firstItem="Uum-22-Ipl" firstAttribute="top" secondItem="TTz-uk-j4P" secondAttribute="top" id="xpo-mz-vFj"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Game" id="VDq-k7-jn9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="IED-MI-HqV">
+                            <connections>
+                                <action selector="toggleEditingMode:" destination="W6c-Xb-3fe" id="Yt2-Es-zEw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addressField" destination="jUe-Zu-zUt" id="7sv-LT-5pR"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class GameDetailViewController: UIViewController {
     
-    
+    let store = GameDatabase.sharedInstance
     
     @IBOutlet var dateField: UITextField!
     @IBOutlet var nameField: UITextField!
@@ -23,13 +23,16 @@ class GameDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        dateField.userInteractionEnabled = false
+        nameField.userInteractionEnabled = false
+        addressField.userInteractionEnabled = false
        
         nameField.text = game.name
         addressField.text = game.address
         
-        
         dateformatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateformatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
         
         let time = dateformatter.stringFromDate(game.date)
         
@@ -42,14 +45,41 @@ class GameDetailViewController: UIViewController {
         game.address = addressField.text ?? ""
         game.name = nameField.text!
         
-        //dateformatter.dateFormat = "MM/dd/yy h:mm a Z"
-        
-        //var a = dateformatter.dateFromString(dateField.text!)
-        
-        //game.gameDate = a!
-        
     }
     
+    @IBAction func toggleEditingMode(sender: AnyObject) {
+        
+        let g = game
+        
+        if navigationItem.rightBarButtonItem!.title == "Edit"{
+            navigationItem.rightBarButtonItem!.title = "Save"
+            
+            textFieldUserInteraction(true)
+        }else{
+            navigationItem.rightBarButtonItem!.title = "Edit"
+            
+            let date = dateformatter.dateFromString(dateField.text!)
+            
+            if !(nameField.text == game.name) || !(addressField.text == game.address) || !(date == game.date){
+                
+                store.editGame(nameField.text!, address: addressField.text!, date: date!, g: g)
+                
+                textFieldUserInteraction(false)
+            }
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+        
+        navigationItem.rightBarButtonItem?.title = "Edit"
+    }
+    
+    func textFieldUserInteraction(b: Bool){
+        dateField.userInteractionEnabled = b
+        nameField.userInteractionEnabled = b
+        addressField.userInteractionEnabled = b
+    }
     
 }
 
